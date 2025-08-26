@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deyvi Joel Xol | Portafolio</title>
+  <meta name="description" content="Portafolio de Deyvi Joel Xol — Desarrollador Web Jr. y Técnico de Soporte. Proyectos, habilidades y contacto." />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Metadatos sociales -->
+  <meta property="og:title" content="Deyvi Joel Xol | Portafolio" />
+  <meta property="og:description" content="Desarrollador Web Jr. | Técnico de Soporte | Est. de Ingeniería en Sistemas" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="avatar.jpg" />
+  <meta property="og:locale" content="es_GT" />
+
+  <!-- Ícono -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💻</text></svg>">
+
+  <!-- Estilos externos -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navegación -->
+  <nav class="nav" aria-label="Principal">
+    <div class="nav-inner">
+      <a href="#inicio" class="brand" aria-label="Inicio">
+        <span class="logo">DX</span>
+        <span>Deyvi Xol</span>
+      </a>
+      <button class="hamb" id="hamb" aria-label="Abrir menú" title="Menú">☰</button>
+      <div class="menu" id="menu">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyecto">Proyecto</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contacto">Contacto</a>
+        <button class="btn" id="themeBtn" aria-label="Cambiar tema">🌙 / ☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="inicio" class="hero" role="banner">
+    <div class="hero-inner">
+      <div>
+        <span class="chip">Desarrollador Web Jr. • Técnico de Soporte</span>
+        <h1>Hola, soy <span class="grad">Deyvi Joel Xol</span></h1>
+        <p class="sub">Estudiante de Ingeniería en Sistemas. Me enfoco en desarrollo web (HTML, CSS, JS), bases de datos y buenas prácticas de soporte técnico. Me gusta construir soluciones claras, accesibles y con estilo.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#proyecto">🚀 Ver proyecto destacado</a>
+          <a class="btn" href="#contacto">📩 Contacto</a>
+          <a class="btn" href="https://github.com/davexdev" target="_blank" rel="noopener">🧑‍💻 GitHub</a>
+        </div>
+      </div>
+      <div class="profile">
+        <div class="ring" aria-hidden="true">
+          <img src="avatar.jpg" alt="Foto de perfil: Deyvi Joel Xol" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sobre mí -->
+    <section id="sobre-mi" class="about card fade" aria-labelledby="title-about">
+      <h2 id="title-about">Sobre mí</h2>
+      <p>
+        Soy estudiante de Ingeniería en Sistemas con base sólida en desarrollo web, soporte técnico y atención al cliente. Uso
+        <strong>HTML</strong>, <strong>CSS</strong> y <strong>JavaScript</strong>, gestiono versiones con <strong>Git/GitHub</strong> y trabajo con
+        <strong>MySQL</strong>. También utilizo Linux y herramientas de acceso remoto (AnyDesk/Zoom). Me caracterizo por aprender rápido, documentar procesos y
+        compartir lo que sé. Actualmente profundizo en <strong>ciberseguridad</strong> y desarrollo <strong>Full Stack</strong>.
+      </p>
+    </section>
+
+    <!-- Proyecto -->
+    <section id="proyecto" class="project fade" aria-labelledby="title-project">
+      <h2 id="title-project">Proyecto Destacado</h2>
+      <article class="card">
+        <div>
+          <h3>Digital Care</h3>
+          <p>Plataforma web para soporte técnico, mantenimiento y contacto profesional. Incluye diseño responsive, sección de servicios,
+            y formularios de contacto. Roadmap: panel de administración y blog técnico.</p>
+          <div class="meta">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Node.js (plan)</span>
+            <span class="tag">MySQL (plan)</span>
+          </div>
+          <div class="actions" style="margin-top:.8rem;">
+            <a class="btn primary" href="https://digitalcaregt.github.io" target="_blank" rel="noopener">🔗 Ver Proyecto</a>
+            <a class="btn" href="https://github.com/davexdev" target="_blank" rel="noopener">📦 Repositorios</a>
+          </div>
+        </div>
+        <div>
+          <img src="digitalcare-cover.jpg" alt="Captura del sitio Digital Care" class="cover" loading="lazy">
+        </div>
+      </article>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades" class="fade" aria-labelledby="title-skills">
+      <h2 id="title-skills">Habilidades Técnicas</h2>
+      <div class="skills">
+        <div class="skill">
+          <div class="label"><span>HTML / CSS / JS</span><span>85%</span></div>
+          <div class="bar" aria-hidden="true"><span data-width="85%"></span></div>
+        </div>
+        <div class="skill">
+          <div class="label"><span>Git & GitHub</span><span>75%</span></div>
+          <div class="bar" aria-hidden="true"><span data-width="75%"></span></div>
+        </div>
+        <div class="skill">
+          <div class="label"><span>Bases de Datos (MySQL)</span><span>70%</span></div>
+          <div class="bar" aria-hidden="true"><span data-width="70%"></span></div>
+        </div>
+        <div class="skill">
+          <div class="label"><span>Linux & Terminal</span><span>60%</span></div>
+          <div class="bar" aria-hidden="true"><span data-width="60%"></span></div>
+        </div>
+        <div class="skill">
+          <div class="label"><span>Ciberseguridad (en formación)</span><span>50%</span></div>
+          <div class="bar" aria-hidden="true"><span data-width="50%"></span></div>
+        </div>
+        <div class="skill">
+          <div class="label"><span>Soporte Técnico</span><span>80%</span></div>
+          <div class="bar" aria-hidden="true"><span data-width="80%"></span></div>
+        </div>
+      </div>
+      <p class="tip">Consejo: presiona <span class="kbd">Ctrl</span> + <span class="kbd">K</span> para buscar secciones por título.</p>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact fade" aria-labelledby="title-contact">
+      <h2 id="title-contact">Contacto</h2>
+      <div class="list card">
+        <div>📧 <a href="mailto:xdave418@gmail.com">xdave418@gmail.com</a></div>
+        <div>💻 <a href="https://github.com/davexdev" target="_blank" rel="noopener">github.com/davexdev</a></div>
+        <div>🌐 <a href="https://www.linkedin.com/in/deyvi-joel-xol-chiquin-644025370" target="_blank" rel="noopener">LinkedIn</a></div>
+      </div>
+      <form class="card" id="contactForm" aria-label="Formulario de contacto (simulado)">
+        <label>
+          Nombre
+          <input name="nombre" type="text" placeholder="Tu nombre" required>
+        </label>
+        <label>
+          Correo
+          <input name="correo" type="email" placeholder="tucorreo@ejemplo.com" required>
+        </label>
+        <label>
+          Mensaje
+          <textarea name="mensaje" placeholder="Cuéntame sobre tu proyecto"></textarea>
+        </label>
+        <button class="btn primary" type="submit">Enviar</button>
+        <small class="muted">Este formulario es una demo que muestra un mensaje en la página. Para envío real, conecta un backend o un servicio como Formspree.</small>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Deyvi Joel Xol. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Datos estructurados para SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Deyvi Joel Xol",
+    "jobTitle": "Desarrollador Web Jr.",
+    "email": "mailto:xdave418@gmail.com",
+    "url": "https://digitalcaregt.github.io/",
+    "sameAs": [
+      "https://github.com/davexdev",
+      "https://www.linkedin.com/in/deyvi-joel-xol-chiquin-644025370"
+    ]
+  }
+  </script>
+
+  <!-- JS externo -->
+  <script src="script.js" defer></script>
+</body>
+</html>
