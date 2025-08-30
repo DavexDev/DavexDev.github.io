@@ -67,6 +67,24 @@ function hanoi(n, from, to, aux, moves) {
       <a class="btn" href="./#contacto">Volver al contacto</a>
     </section>
   </main>
+<!-- Modal de Victoria -->
+<div id="winModal" class="hx-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="winTitle">
+  <div class="hx-modal__dialog">
+    <div class="hx-modal__icon" aria-hidden="true">🏆</div>
+    <h3 id="winTitle" class="hx-modal__title">¡Felicidades, ganaste!</h3>
+    <p class="hx-modal__text">
+      Completaste la Torre de Hanoi.
+    </p>
+    <div class="hx-modal__stats">
+      <span id="winMoves">Movimientos: 0</span>
+      <span id="winTime">Tiempo: 00:00</span>
+    </div>
+    <div class="hx-modal__actions">
+      <button id="btnPlayAgain" class="btn primary">Reiniciar</button>
+      <button id="btnCloseModal" class="btn">Cerrar</button>
+    </div>
+  </div>
+</div>
 
   <footer class="hx-footer">© 2025 Deyvi Joel Xol</footer>
 
