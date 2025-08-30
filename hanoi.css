@@ -137,6 +137,66 @@ body {
   color: #a7b4d6;
   font-size: .9rem;
 }
+/* ===== Modal de Victoria ===== */
+.hx-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  display: grid;
+  place-items: center;
+  transition: opacity .2s ease;
+  z-index: 1000;
+  opacity: 1;
+}
+.hx-modal[aria-hidden="true"] { 
+  opacity: 0; 
+  pointer-events: none; 
+}
+
+.hx-modal__dialog {
+  width: min(520px, 92vw);
+  background: #11182d;
+  color: #e6f0ff;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  text-align: center;
+}
+
+.hx-modal__icon { font-size: 40px; margin-bottom: 6px; }
+.hx-modal__title { font-size: 1.4rem; margin-bottom: 8px; }
+.hx-modal__text { color: #a7b4d6; margin-bottom: 12px; }
+
+.hx-modal__stats {
+  display: flex; 
+  justify-content: center; 
+  gap: 16px;
+  background: #151c33;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 14px;
+}
+
+.hx-modal__actions { display: flex; gap: 10px; justify-content: center; }
+
+.btn {
+  background: #1b223a;
+  color: #e6f0ff;
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn:hover { background: #232c4d; }
+.btn.primary {
+  background: linear-gradient(90deg, #00e5ff, #00ffa3);
+  color: #001221;
+  border: none;
+}
+.btn.primary:hover { filter: brightness(1.02); }
 
 /* Responsive */
 @media (max-width: 760px) {
