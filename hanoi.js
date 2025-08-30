@@ -1,4 +1,4 @@
-// Torre de Hanoi en JS con drag&drop + solución automática (apilado estable) + Modal de victoria
+// Torre de Hanoi en JS con drag&drop + solución automática (apilado estable) + Modal de victoria + Modal de advertencia
 (() => {
   const towers = [[], [], []]; // cada torre: array de discos (abajo->arriba)
   let total = 4;
@@ -19,7 +19,7 @@
   const btnReset = document.getElementById("btnReset");
   const btnSolve = document.getElementById("btnSolve");
 
-  // --- Modal de victoria ---
+  // --- Modal de victoria (HTML ya está en la página) ---
   const elWinModal    = document.getElementById("winModal");
   const elWinMoves    = document.getElementById("winMoves");
   const elWinTime     = document.getElementById("winTime");
@@ -27,7 +27,7 @@
   const btnPlayAgain  = document.getElementById("btnPlayAgain");
 
   function openWinModal(movesCount, timeText) {
-    if (!elWinModal) return; // por si el HTML aún no tiene el modal
+    if (!elWinModal) return;
     elWinMoves.textContent = `Movimientos: ${movesCount}`;
     elWinTime.textContent  = `Tiempo: ${timeText}`;
     elWinModal.setAttribute("aria-hidden", "false");
@@ -51,6 +51,57 @@
     btnReset?.click();
     btnStart?.click();
   });
+
+  // --- Modal de advertencia (se inyecta desde JS, reutiliza estilos .hx-modal) ---
+  let warnModalEl = null;
+  let warnOkBtn = null;
+  function ensureWarnModal() {
+    if (warnModalEl) return;
+    const wrapper = document.createElement("div");
+    wrapper.id = "warnModal";
+    wrapper.className = "hx-modal";
+    wrapper.setAttribute("aria-hidden", "true");
+    wrapper.setAttribute("role", "dialog");
+    wrapper.setAttribute("aria-modal", "true");
+    wrapper.setAttribute("aria-labelledby", "warnTitle");
+    wrapper.innerHTML = `
+      <div class="hx-modal__dialog" role="document">
+        <div class="hx-modal__icon" aria-hidden="true">⚠️</div>
+        <h3 id="warnTitle" class="hx-modal__title">Movimiento inválido</h3>
+        <p id="warnText" class="hx-modal__text">
+          No puedes colocar un disco grande sobre uno más pequeño.
+        </p>
+        <div class="hx-modal__actions">
+          <button id="btnWarnOk" class="btn primary">Entendido</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(wrapper);
+    warnModalEl = wrapper;
+    warnOkBtn = wrapper.querySelector("#btnWarnOk");
+
+    // Cerrar con fondo / ESC / botón
+    warnModalEl.addEventListener("click", (e) => {
+      if (e.target === warnModalEl) closeWarnModal();
+    });
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && warnModalEl.getAttribute("aria-hidden") === "false") {
+        closeWarnModal();
+      }
+    });
+    warnOkBtn?.addEventListener("click", closeWarnModal);
+  }
+  function openWarnModal(customMsg) {
+    ensureWarnModal();
+    const textEl = warnModalEl.querySelector("#warnText");
+    if (customMsg) textEl.textContent = customMsg;
+    warnModalEl.setAttribute("aria-hidden", "false");
+    warnOkBtn?.focus();
+  }
+  function closeWarnModal() {
+    if (!warnModalEl) return;
+    warnModalEl.setAttribute("aria-hidden", "true");
+  }
 
   // listeners base
   btnStart.addEventListener("click", () => {
@@ -162,8 +213,8 @@
     if (!started || from === to) { draw(); return; }
     const top = topDisk(from);
     if (top !== size) { draw(); return; } // debe ser el tope
-    const can = canPlace(size, to);
-    if (can) {
+
+    if (canPlace(size, to)) {
       towers[from].pop();
       towers[to].push(size);
       moves++;
@@ -172,7 +223,11 @@
         onWin();
         return; // evita más animación/pasos
       }
+    } else {
+      // 🚨 Advertencia de jugada inválida (modal)
+      openWarnModal("No puedes colocar un disco grande sobre uno más pequeño.");
     }
+
     draw();
   }
 
@@ -197,7 +252,7 @@
     return (towers[1].length === totalCount || towers[2].length === totalCount);
   }
 
-  // Pausa tiempo + abre modal (solo una vez)
+  // Pausa tiempo + abre modal de victoria (solo una vez)
   function onWin() {
     if (solved) return;
     solved = true;
