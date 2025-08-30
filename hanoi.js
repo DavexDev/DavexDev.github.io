@@ -1,4 +1,4 @@
-// Torre de Hanoi en JS con drag&drop + solución automática (apilado estable)
+// Torre de Hanoi en JS con drag&drop + solución automática (apilado estable) + Modal de victoria
 (() => {
   const towers = [[], [], []]; // cada torre: array de discos (abajo->arriba)
   let total = 4;
@@ -15,12 +15,49 @@
   const elTime  = document.getElementById("time");
   const elDiskCount = document.getElementById("diskCount");
   const elSpeed = document.getElementById("speed");
+  const btnStart = document.getElementById("btnStart");
+  const btnReset = document.getElementById("btnReset");
+  const btnSolve = document.getElementById("btnSolve");
 
-  document.getElementById("btnStart").addEventListener("click", () => {
+  // --- Modal de victoria ---
+  const elWinModal    = document.getElementById("winModal");
+  const elWinMoves    = document.getElementById("winMoves");
+  const elWinTime     = document.getElementById("winTime");
+  const btnCloseModal = document.getElementById("btnCloseModal");
+  const btnPlayAgain  = document.getElementById("btnPlayAgain");
+
+  function openWinModal(movesCount, timeText) {
+    if (!elWinModal) return; // por si el HTML aún no tiene el modal
+    elWinMoves.textContent = `Movimientos: ${movesCount}`;
+    elWinTime.textContent  = `Tiempo: ${timeText}`;
+    elWinModal.setAttribute("aria-hidden", "false");
+    (btnPlayAgain ?? btnCloseModal)?.focus();
+  }
+  function closeWinModal() {
+    if (!elWinModal) return;
+    elWinModal.setAttribute("aria-hidden", "true");
+  }
+  btnCloseModal?.addEventListener("click", closeWinModal);
+  elWinModal?.addEventListener("click", (e) => {
+    if (e.target === elWinModal) closeWinModal();
+  });
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && elWinModal?.getAttribute("aria-hidden") === "false") {
+      closeWinModal();
+    }
+  });
+  btnPlayAgain?.addEventListener("click", () => {
+    closeWinModal();
+    btnReset?.click();
+    btnStart?.click();
+  });
+
+  // listeners base
+  btnStart.addEventListener("click", () => {
     start(Number(elDiskCount.value));
   });
-  document.getElementById("btnReset").addEventListener("click", reset);
-  document.getElementById("btnSolve").addEventListener("click", solveAnimated);
+  btnReset.addEventListener("click", reset);
+  btnSolve.addEventListener("click", solveAnimated);
   elSpeed.addEventListener("input", () => { /* se lee al animar */ });
   window.addEventListener("resize", () => { if (started) draw(); }); // redibujo estable
 
@@ -67,8 +104,6 @@
         const w = Math.round(min + (max - min) * (size / total));
         el.style.width = `${w}px`;
 
-        // color base oscuro (heredado del tema del sitio)
-      
         // drag solo sobre el disco tope y si no estamos animando
         el.draggable = isTop(idx, size) && started && !animating && !solved;
         if (el.draggable) {
@@ -132,7 +167,11 @@
       towers[from].pop();
       towers[to].push(size);
       moves++;
-      if (isSolved()) solved = true;
+      // Detectar victoria y actuar
+      if (isSolved()) {
+        onWin();
+        return; // evita más animación/pasos
+      }
     }
     draw();
   }
@@ -158,11 +197,30 @@
     return (towers[1].length === totalCount || towers[2].length === totalCount);
   }
 
+  // Pausa tiempo + abre modal (solo una vez)
+  function onWin() {
+    if (solved) return;
+    solved = true;
+    animating = false;
+    clearInterval(timerId);
+    timerId = null;
+
+    // calcula tiempo final mm:ss y actualiza UI
+    const sec = Math.floor((Date.now() - t0)/1000);
+    const mm = String(Math.floor(sec/60)).padStart(2,"0");
+    const ss = String(sec%60).padStart(2,"0");
+    const timeText = `${mm}:${ss}`;
+    elTime.textContent = `Tiempo: ${timeText}`;
+
+    openWinModal(moves, timeText); // modal en vez de alert
+    draw(); // limpieza visual final
+  }
+
   // reloj mm:ss
   function tickTime() {
     clearInterval(timerId);
     timerId = setInterval(() => {
-      if (!started) return;
+      if (!started || solved) return; // si ya ganó, no siga contando
       const sec = Math.floor((Date.now() - t0)/1000);
       const mm = String(Math.floor(sec/60)).padStart(2,"0");
       const ss = String(sec%60).padStart(2,"0");
@@ -180,11 +238,12 @@
     const delay = Number(elSpeed.value);
     let i = 0;
     const step = () => {
+      if (!animating || solved) { animating = false; return; }
       if (i >= movesList.length) { animating = false; draw(); return; }
       const [from, to] = movesList[i++];
       const size = topDisk(from);
-      attemptMove(from, to, size);
-      if (animating) setTimeout(step, delay);
+      attemptMove(from, to, size); // onWin() detiene todo si ya se resolvió
+      if (animating && !solved) setTimeout(step, delay);
     };
     step();
   }
