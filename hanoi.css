@@ -1,0 +1,204 @@
+/* ===========================
+   Torre de Hanoi — estilos
+   =========================== */
+
+/* Reset básico */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, sans-serif;
+  background: #0b1020; /* fondo oscuro */
+  color: #e6f0ff;
+  line-height: 1.5;
+}
+
+/* Header */
+.hx-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #11182d;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.hx-header a {
+  color: #e6f0ff;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+.hx-header .brand {
+  font-weight: 700;
+}
+
+/* Contenido principal */
+.hx-wrap { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
+.hx-hero h1 { margin: .5rem 0 1rem; font-size: 1.8rem; }
+.hx-hero p { color: #a7b4d6; margin-bottom: 1rem; }
+
+/* Controles */
+.hx-controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+  background: #151c33;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 1rem;
+}
+.hx-controls label { display: flex; align-items: center; gap: 6px; }
+.hx-controls button {
+  background: #1b223a;
+  color: #e6f0ff;
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.hx-controls button:hover {
+  background: #232c4d;
+}
+.hx-stats { margin-left: auto; display: flex; gap: 16px; }
+
+/* Tablero */
+.hx-stage {
+  margin-top: 16px;
+  background: #151c33;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 20px;
+  height: 380px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+/* Torres */
+.tower {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  border: 1px dashed rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 18px 10px;
+}
+.tower::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 18px;
+  width: 10px;
+  height: 220px;
+  background: rgba(255,255,255,.2);
+  border-radius: 12px;
+}
+
+/* Discos base */
+.disk {
+  height: 22px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  user-select: none;
+  border: 1px solid rgba(0,0,0,.3);
+  color: #001221; /* contraste sobre fondos claros */
+  transition: background .2s ease;
+}
+.disk.drag { outline: 2px solid #00e5ff; }
+
+/* Colores por tamaño */
+.disk[data-size="1"] { background: #ffb347; }  /* naranja claro */
+.disk[data-size="2"] { background: #ffd460; }  /* amarillo */
+.disk[data-size="3"] { background: #80ffd3; }  /* verde aqua */
+.disk[data-size="4"] { background: #67d6ff; }  /* celeste */
+.disk[data-size="5"] { background: #c099ff; }  /* violeta */
+.disk[data-size="6"] { background: #ff92b8; }  /* rosado */
+.disk[data-size="7"] { background: #9df57a; }  /* verde lima */
+.disk[data-size="8"] { background: #ffa56b; }  /* naranja pastel */
+
+/* Torre seleccionada */
+.tower.selected .disk {
+  background: linear-gradient(90deg, #00e5ff, #00ffa3);
+  color: #001221;
+}
+
+/* Texto extra */
+.hint { margin-top: 10px; color: #a7b4d6; font-size: .9rem; }
+
+/* Footer */
+.hx-footer {
+  text-align: center;
+  padding: 24px;
+  color: #a7b4d6;
+  font-size: .9rem;
+}
+/* ===== Modal de Victoria ===== */
+.hx-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  display: grid;
+  place-items: center;
+  transition: opacity .2s ease;
+  z-index: 1000;
+  opacity: 1;
+}
+.hx-modal[aria-hidden="true"] { 
+  opacity: 0; 
+  pointer-events: none; 
+}
+
+.hx-modal__dialog {
+  width: min(520px, 92vw);
+  background: #11182d;
+  color: #e6f0ff;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  text-align: center;
+}
+
+.hx-modal__icon { font-size: 40px; margin-bottom: 6px; }
+.hx-modal__title { font-size: 1.4rem; margin-bottom: 8px; }
+.hx-modal__text { color: #a7b4d6; margin-bottom: 12px; }
+
+.hx-modal__stats {
+  display: flex; 
+  justify-content: center; 
+  gap: 16px;
+  background: #151c33;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 14px;
+}
+
+.hx-modal__actions { display: flex; gap: 10px; justify-content: center; }
+
+.btn {
+  background: #1b223a;
+  color: #e6f0ff;
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn:hover { background: #232c4d; }
+.btn.primary {
+  background: linear-gradient(90deg, #00e5ff, #00ffa3);
+  color: #001221;
+  border: none;
+}
+.btn.primary:hover { filter: brightness(1.02); }
+
+/* Responsive */
+@media (max-width: 760px) {
+  .hx-stats { margin-left: 0; }
+}

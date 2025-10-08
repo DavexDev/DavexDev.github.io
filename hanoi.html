@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Torre de Hanoi — Demo | Deyvi Joel Xol</title>
+  <link rel="stylesheet" href="hanoi.css" />
+  <meta name="description" content="Mini juego Torre de Hanoi en JavaScript: arrastra discos, cuenta movimientos y resuelve automáticamente.">
+</head>
+<body>
+  <header class="hx-header">
+    <a href="./" class="brand">DX • Deyvi Xol</a>
+    <nav>
+      <a href="./">Inicio</a>
+      <a href="#demo">Demo</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="hx-wrap">
+    <section class="hx-hero" id="demo">
+      <h1>Torre de Hanoi — Demo JS</h1>
+      <p>Juega con discos arrastrables, cuenta tus movimientos y observa la solución automática (recursiva).</p>
+      <div class="hx-controls">
+        <label>Discos:
+          <input id="diskCount" type="number" min="3" max="8" value="4" />
+        </label>
+        <button id="btnStart">Iniciar</button>
+        <button id="btnReset">Reiniciar</button>
+        <button id="btnSolve">Resolver (auto)</button>
+        <label>Velocidad:
+          <input id="speed" type="range" min="50" max="800" value="250" />
+        </label>
+        <div class="hx-stats">
+          <span id="moves">Movimientos: 0</span>
+          <span id="time">Tiempo: 00:00</span>
+        </div>
+      </div>
+
+      <div class="hx-stage" aria-label="Tablero Torre de Hanoi">
+        <div class="tower" data-tower="0" aria-label="Torre 1"></div>
+        <div class="tower" data-tower="1" aria-label="Torre 2"></div>
+        <div class="tower" data-tower="2" aria-label="Torre 3"></div>
+      </div>
+
+      <p class="hint">Tip: puedes <strong>arrastrar y soltar</strong> el disco superior o hacer <strong>clic</strong> en torre origen/destino.</p>
+    </section>
+
+    <section id="como-funciona" class="hx-how">
+      <h2>¿Cómo funciona?</h2>
+      <p>
+        El botón <em>Resolver (auto)</em> genera la secuencia óptima de movimientos con el
+        algoritmo recursivo clásico: mover <code>n−1</code> discos al auxiliar,
+        mover el disco grande al destino y luego mover los <code>n−1</code> desde el auxiliar.
+      </p>
+      <pre><code>// Esqueleto del algoritmo:
+function hanoi(n, from, to, aux, moves) {
+  if (n === 0) return;
+  hanoi(n-1, from, aux, to, moves);
+  moves.push([from, to]);
+  hanoi(n-1, aux, to, from, moves);
+}</code></pre>
+    </section>
+
+    <section id="contacto" class="hx-contact">
+      <a class="btn" href="./#contacto">Volver al contacto</a>
+    </section>
+  </main>
+<!-- Modal de Victoria -->
+<div id="winModal" class="hx-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="winTitle">
+  <div class="hx-modal__dialog">
+    <div class="hx-modal__icon" aria-hidden="true">🏆</div>
+    <h3 id="winTitle" class="hx-modal__title">¡Felicidades, ganaste!</h3>
+    <p class="hx-modal__text">
+      Completaste la Torre de Hanoi.
+    </p>
+    <div class="hx-modal__stats">
+      <span id="winMoves">Movimientos: 0</span>
+      <span id="winTime">Tiempo: 00:00</span>
+    </div>
+    <div class="hx-modal__actions">
+      <button id="btnPlayAgain" class="btn primary">Reiniciar</button>
+      <button id="btnCloseModal" class="btn">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+  <footer class="hx-footer">© 2025 Deyvi Joel Xol</footer>
+
+  <script src="hanoi.js" defer></script>
+</body>
+</html>
