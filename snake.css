@@ -1,0 +1,214 @@
+/* Reset general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #e0f7fa;
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  text-align: center;
+  background-color: rgba(17, 24, 45, 0.9);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00e5ff;
+  max-width: 100%;
+}
+
+/* Canvas principal */
+canvas {
+  border: 2px solid #00e5ff;
+  margin-bottom: 10px;
+  background-color: black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Botones */
+button {
+  padding: 10px 20px;
+  font-weight: bold;
+  background-color: #00e5ff;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #00bcd4;
+}
+
+/* Títulos y puntaje */
+h1 {
+  color: #00e5ff;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.info {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+/* Controles móviles */
+.mobile-controls {
+  margin-top: 15px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.mobile-controls button {
+  font-size: 24px;
+  padding: 10px 15px;
+  margin: 2px;
+  background-color: #00e5ff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00e5ff80;
+  transition: background-color 0.2s;
+}
+
+.mobile-controls button:hover {
+  background-color: #00bcd4;
+}
+
+/* === Media Queries === */
+
+/* Tablets y móviles pequeños */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  canvas {
+    width: 90vw;
+    height: 90vw;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .info {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .mobile-controls {
+    display: flex;
+  }
+
+  .mobile-controls button {
+    font-size: 22px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  canvas {
+    width: 300px;
+    height: 300px;
+  }
+
+  .mobile-controls button {
+    font-size: 20px; 
+    padding: 8px;
+  }
+
+  .info {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+
+  .mobile-controls button {
+    font-size: 20px;
+    padding: 10px;
+  }
+
+.modal {
+  display: flex; /* Se mostrará por defecto */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #11182d;
+  color: #e0f7fa;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: left;
+  max-width: 400px;
+  box-shadow: 0 0 20px #00e5ff;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h2 {
+  color: #00e5ff;
+  margin-bottom: 10px;
+}
+
+.modal-content ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  background-color: #00e5ff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego Culebrita</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="snake.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🐍 Juego de la Culebrita</h1>
+    <canvas id="game" width="400" height="400"></canvas>
+    <div class="info">
+      <p>Puntuación: <span id="score">0</span></p>
+    </div>
+    <button onclick="startGame()">Iniciar Juego</button>
+    <button onclick="togglePause()" id="pauseBtn">Pausar</button>
+
+<div class="mobile-controls">
+  <button onclick="simulateKey('ArrowUp')">⬆️</button>
+  <div>
+    <button onclick="simulateKey('ArrowLeft')">⬅️</button>
+    <button onclick="simulateKey('ArrowDown')">⬇️</button>
+    <button onclick="simulateKey('ArrowRight')">➡️</button>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h2>Controles del Juego</h2>
+    <ul>
+      <li><strong>Teclado:</strong> Flechas o teclas W, A, S, D para mover la culebra.</li>
+      <li><strong>Botón:</strong> "Iniciar Juego" para comenzar.</li>
+      <li><strong>Pausa:</strong> Usa el botón "Pausar" para detener y continuar el juego.</li>
+      <li><strong>Móvil:</strong> Usa los botones azules para jugar en pantalla táctil.</li>
+    </ul>
+    <button onclick="initGame()">¡Entendido, jugar!</button>
+  </div>
+</div>
+
+  </div>
+  <script src="snake.js"></script>
+</body>
+</html>
