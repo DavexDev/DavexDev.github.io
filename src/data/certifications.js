@@ -1,0 +1,40 @@
+export const certifications = [
+  {
+    id: 1,
+    name: 'Iniciación al Desarrollo con IA',
+    issuer: 'BIG school · Desarrollo con IA: de 0 a Producción',
+    year: 'Mar 2026',
+    icon: '🤖',
+    badgeColor: '#00e5ff',
+    detail: '6 horas · Romuald Fons & Brais Moure',
+  },
+  {
+    id: 2,
+    name: 'Certificado de Asistencia al Curso de Ciberseguridad y Hacking Ético',
+    issuer: 'BIG school',
+    year: '10/04/2026',
+    icon: '🛡️',
+    badgeColor: '#7c4dff',
+    detail: '6 horas · Técnicas de detección de vulnerabilidades y defensa digital',
+  },
+  {
+    id: 3,
+    name: 'Certificado de Asistencia al Curso de Marketing Digital con IA',
+    issuer: 'BIG school · BigSEO',
+    year: '11/04/2026',
+    icon: '📈',
+    badgeColor: '#00ffa3',
+    detail: '6 horas · Estrategia, visibilidad y rentabilidad de cada acción',
+  },
+  {
+    id: 4,
+    name: 'The Complete Full-Stack Web Development Bootcamp',
+    issuer: 'Udemy',
+    year: '2026',
+    icon: '🎓',
+    badgeColor: '#0088cc',
+    detail: 'Instructor: Dr. Angela Yu · Certificate no: UC-895c182e-3c45-4aa8-b777-81e7a5f08ade',
+    url: 'https://ude.my/UC-895c182e-3c45-4aa8-b777-81e7a5f08ade',
+  },
+]
+
