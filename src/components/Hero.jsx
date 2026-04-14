@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { FaBriefcase, FaRocket, FaEnvelope, FaFileAlt, FaGithub } from 'react-icons/fa'
 
 const ROLES = [
   'Desarrollador Web Jr.',
@@ -41,7 +42,10 @@ export default function Hero() {
       <div className="container hero-inner">
         {/* Text */}
         <div className="hero-text">
-          <span className="chip">✨ Disponible para proyectos</span>
+          <span className="chip">
+            <FaBriefcase aria-hidden="true" style={{ marginRight: '0.55rem' }} />
+            Disponible para proyectos
+          </span>
 
           <h1>
             Hola, soy <span className="grad">Deyvi Joel Xol</span>
@@ -59,23 +63,29 @@ export default function Hero() {
           </p>
 
           <div className="hero-cta">
-            <a className="btn primary" href="#proyectos">🚀 Ver proyectos</a>
-            <a className="btn" href="#contacto">📩 Contacto</a>
+            <a className="btn primary" href="#proyectos" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+              <FaRocket aria-hidden="true" /> Ver proyectos
+            </a>
+            <a className="btn" href="#contacto" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+              <FaEnvelope aria-hidden="true" /> Contacto
+            </a>
             <a
               className="btn"
               href="./cv.pdf"
               title="Proximamente disponible"
               aria-label="Descargar CV (próximamente)"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
             >
-              📄 CV
+              <FaFileAlt aria-hidden="true" /> CV
             </a>
             <a
               className="btn"
               href="https://github.com/davexdev"
               target="_blank"
               rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
             >
-              🧑‍💻 GitHub
+              <FaGithub aria-hidden="true" /> GitHub
             </a>
           </div>
         </div>

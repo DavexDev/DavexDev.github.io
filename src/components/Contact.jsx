@@ -1,4 +1,16 @@
 import { useState, useRef } from 'react'
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaMapMarkerAlt,
+  FaCheckCircle,
+  FaPaperPlane,
+  FaSpinner,
+  FaExclamationTriangle,
+  FaComments,
+} from 'react-icons/fa'
 import emailjs from '@emailjs/browser'
 
 const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID
@@ -34,7 +46,9 @@ export default function Contact() {
         <div className="contact-grid">
           {/* Info */}
           <div className="card contact-info">
-            <h3>Hablemos 👋</h3>
+            <h3 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+              <FaComments aria-hidden="true" /> Hablemos
+            </h3>
             <p className="muted">
               ¿Tienes un proyecto en mente, quieres colaborar o tienes alguna
               pregunta? Escríbeme directamente.
@@ -42,11 +56,15 @@ export default function Contact() {
 
             <div className="contact-links">
               <a href="tel:+50258978555" className="contact-link">
-                <span className="contact-link-icon">📞</span>
+                <span className="contact-link-icon" aria-hidden="true">
+                  <FaPhoneAlt />
+                </span>
                 <span>+502 5897-8555</span>
               </a>
               <a href="mailto:xdave418@gmail.com" className="contact-link">
-                <span className="contact-link-icon">📧</span>
+                <span className="contact-link-icon" aria-hidden="true">
+                  <FaEnvelope />
+                </span>
                 <span>xdave418@gmail.com</span>
               </a>
               <a
@@ -55,7 +73,9 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="contact-link"
               >
-                <span className="contact-link-icon">💻</span>
+                <span className="contact-link-icon" aria-hidden="true">
+                  <FaGithub />
+                </span>
                 <span>github.com/davexdev</span>
               </a>
               <a
@@ -64,11 +84,15 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="contact-link"
               >
-                <span className="contact-link-icon">🌐</span>
+                <span className="contact-link-icon" aria-hidden="true">
+                  <FaLinkedin />
+                </span>
                 <span>LinkedIn</span>
               </a>
               <div className="contact-link" style={{ cursor: 'default' }}>
-                <span className="contact-link-icon">📍</span>
+                <span className="contact-link-icon" aria-hidden="true">
+                  <FaMapMarkerAlt />
+                </span>
                 <span>Guatemala · Open to Remote Work</span>
               </div>
             </div>
@@ -78,7 +102,9 @@ export default function Contact() {
           <div className="card contact-form-card">
             {status === 'success' ? (
               <div className="form-success">
-                <p className="success-icon">✅</p>
+                <p className="success-icon" aria-hidden="true">
+                  <FaCheckCircle size={28} />
+                </p>
                 <h3>¡Mensaje enviado!</h3>
                 <p className="muted">Gracias, te responderé pronto.</p>
                 <button
@@ -139,13 +165,24 @@ export default function Contact() {
                   type="submit"
                   className="btn primary"
                   disabled={status === 'sending'}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.55rem' }}
                 >
-                  {status === 'sending' ? '⏳ Enviando…' : '✉️ Enviar mensaje'}
+                  {status === 'sending' ? (
+                    <>
+                      <FaSpinner className="icon-spin" aria-hidden="true" />
+                      Enviando…
+                    </>
+                  ) : (
+                    <>
+                      <FaPaperPlane aria-hidden="true" />
+                      Enviar mensaje
+                    </>
+                  )}
                 </button>
 
                 {!SERVICE_ID && (
                   <p className="form-warning" role="note">
-                    ⚠️ EmailJS no está configurado. Crea un archivo .env con las
+                    <FaExclamationTriangle aria-hidden="true" /> EmailJS no está configurado. Crea un archivo .env con las
                     variables de VITE_EMAILJS_* (ver .env.example).
                   </p>
                 )}

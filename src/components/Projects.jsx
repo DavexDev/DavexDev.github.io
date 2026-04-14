@@ -1,6 +1,14 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { FaExternalLinkAlt, FaGithub, FaPlayCircle, FaCode } from 'react-icons/fa'
 import { projects } from '../data/projects'
+
+const LINK_ICON_MAP = {
+  FaExternalLinkAlt,
+  FaGithub,
+  FaPlayCircle,
+  FaCode,
+}
 
 const CATEGORIES = [
   { id: 'all',   label: 'Todos'   },
@@ -67,17 +75,22 @@ export default function Projects() {
                     ))}
                   </div>
                   <div className="project-actions">
-                    {project.links.map((link) => (
+                    {project.links.map((link) => {
+                    const LinkIcon = LINK_ICON_MAP[link.icon]
+                    return (
                       <a
                         key={link.href}
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`btn${link.primary ? ' primary' : ''}`}
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
                       >
+                        {LinkIcon && <LinkIcon aria-hidden="true" size={14} />}
                         {link.label}
                       </a>
-                    ))}
+                    )
+                  })}
                   </div>
                 </div>
               </motion.article>

@@ -1,8 +1,18 @@
 import { useInView } from '../hooks/useInView'
+import { FaStar, FaRobot, FaShieldAlt, FaChartLine, FaGraduationCap } from 'react-icons/fa'
 import { certifications } from '../data/certifications'
+
+const CERT_ICON_MAP = {
+  FaRobot,
+  FaShieldAlt,
+  FaChartLine,
+  FaGraduationCap,
+}
 
 function CertBadge({ cert }) {
   const [ref, inView] = useInView()
+
+  const Icon = CERT_ICON_MAP[cert.icon]
 
   return (
     <div ref={ref} className={`card cert-card${inView ? ' in-view' : ''}`}>
@@ -11,7 +21,7 @@ function CertBadge({ cert }) {
         style={{ color: cert.badgeColor, fontSize: '2.6rem', lineHeight: 1 }}
         aria-hidden="true"
       >
-        {cert.icon}
+        {Icon ? <Icon size={38} /> : cert.icon}
       </div>
       <div>
         <h3 className="cert-name">{cert.name}</h3>
@@ -49,7 +59,7 @@ export default function Certifications() {
           ))}
         </div>
         <p className="muted certs-note">
-          ✨ Más certificaciones en camino — esta sección se actualiza continuamente.
+          <FaStar aria-hidden="true" style={{ marginRight: '0.45rem' }} /> Más certificaciones en camino — esta sección se actualiza continuamente.
         </p>
       </div>
     </section>

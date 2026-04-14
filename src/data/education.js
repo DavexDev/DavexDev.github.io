@@ -6,7 +6,7 @@ export const education = [
     period: '2022 – Presente',
     description:
       'Enfocado en desarrollo de software, bases de datos, redes y sistemas operativos.',
-    icon: '🎓',
+    icon: 'FaGraduationCap',
   },
   {
     id: 2,
@@ -15,6 +15,6 @@ export const education = [
     period: '2019 – 2021',
     description:
       'Formación técnica en hardware, software y fundamentos de programación.',
-    icon: '🏫',
+    icon: 'FaSchool',
   },
 ]

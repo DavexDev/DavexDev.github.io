@@ -7,8 +7,8 @@ export const projects = [
     tags: ['HTML', 'CSS', 'JavaScript', 'Node.js (plan)', 'MySQL (plan)'],
     category: 'web',
     links: [
-      { label: '🔗 Ver Proyecto', href: 'https://digitalcaregt.github.io', primary: true },
-      { label: '📦 Repositorio', href: 'https://github.com/davexdev', primary: false },
+      { label: 'Ver proyecto', href: 'https://digitalcaregt.github.io', primary: true, icon: 'FaExternalLinkAlt' },
+      { label: 'Repositorio', href: 'https://github.com/davexdev', primary: false, icon: 'FaGithub' },
     ],
     cover: 'digitalcare-cover.jpg',
     coverAlt: 'Captura del sitio Digital Care',
@@ -21,8 +21,8 @@ export const projects = [
     tags: ['HTML', 'CSS', 'JavaScript', 'Algoritmos'],
     category: 'juego',
     links: [
-      { label: '🎮 Probar Demo', href: 'https://davexdev.github.io/hanoi.html', primary: true },
-      { label: '📦 Código', href: 'https://github.com/davexdev/davexdev.github.io', primary: false },
+      { label: 'Probar demo', href: 'https://davexdev.github.io/hanoi.html', primary: true, icon: 'FaPlayCircle' },
+      { label: 'Código', href: 'https://github.com/davexdev/davexdev.github.io', primary: false, icon: 'FaCode' },
     ],
     cover: 'hanoi-cover.jpg',
     coverAlt: 'Demo interactiva Torre de Hanoi',
@@ -35,7 +35,7 @@ export const projects = [
     tags: ['Jakarta EE 10', 'PostgreSQL', 'Bootstrap 5', 'Chart.js', 'PDFBox'],
     category: 'datos',
     links: [
-      { label: '🔗 Ver en GitHub', href: 'https://github.com/davexdev/etl-system', primary: true },
+      { label: 'Ver en GitHub', href: 'https://github.com/davexdev/etl-system', primary: true, icon: 'FaGithub' },
     ],
     cover: 'etl-system.jpg',
     coverAlt: 'ETL System – Panel de reportes',
@@ -48,8 +48,8 @@ export const projects = [
     tags: ['HTML', 'CSS', 'JavaScript', 'Canvas'],
     category: 'juego',
     links: [
-      { label: '🎮 Probar Demo', href: 'https://davexdev.github.io/snake.html', primary: true },
-      { label: '📦 Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false },
+      { label: 'Probar demo', href: 'https://davexdev.github.io/snake.html', primary: true, icon: 'FaPlayCircle' },
+      { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
     ],
     cover: 'nake-cover.jpg',
     coverAlt: 'Juego Snake clásico',

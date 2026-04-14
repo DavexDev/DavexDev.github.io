@@ -1,8 +1,15 @@
 import { useInView } from '../hooks/useInView'
+import { FaGraduationCap, FaSchool } from 'react-icons/fa'
 import { education } from '../data/education'
+
+const EDUCATION_ICON_MAP = {
+  FaGraduationCap,
+  FaSchool,
+}
 
 function TimelineItem({ item, isLeft }) {
   const [ref, inView] = useInView()
+  const Icon = EDUCATION_ICON_MAP[item.icon]
 
   return (
     <div
@@ -13,7 +20,9 @@ function TimelineItem({ item, isLeft }) {
       <div className="timeline-spacer" aria-hidden="true" />
 
       {/* Center icon */}
-      <div className="timeline-icon" aria-hidden="true">{item.icon}</div>
+      <div className="timeline-icon" aria-hidden="true">
+        {Icon ? <Icon size={24} /> : item.icon}
+      </div>
 
       {/* Card */}
       <div className="card timeline-card">
