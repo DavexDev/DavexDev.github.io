@@ -12,9 +12,7 @@ import {
   FaComments,
 } from 'react-icons/fa'
 
-const RESEND_API_KEY = import.meta.env.VITE_RESEND_API_KEY
-const RESEND_TO = 'xdave418@gmail.com'
-const RESEND_FROM = 'Contacto Portfolio <contacto@davexdev.com>'
+const CONTACT_FUNCTION_URL = import.meta.env.VITE_CONTACT_FUNCTION_URL
 
 export default function Contact() {
   const formRef = useRef(null)
@@ -26,8 +24,8 @@ export default function Contact() {
     setStatus('sending')
     setErrMsg('')
 
-    if (!RESEND_API_KEY) {
-      setErrMsg('El servicio de correo no está configurado. Añade VITE_RESEND_API_KEY en .env.')
+    if (!CONTACT_FUNCTION_URL) {
+      setErrMsg('El servicio de contacto no está configurado. Añade VITE_CONTACT_FUNCTION_URL en .env.')
       setStatus('error')
       return
     }
@@ -37,39 +35,28 @@ export default function Contact() {
     const email = formData.get('from_email')?.toString().trim()
     const message = formData.get('message')?.toString().trim()
 
-    const subject = `Nuevo mensaje desde el portafolio: ${name || 'Contacto'}`
-    const bodyHtml = `
-      <p><strong>Nombre:</strong> ${name || 'No proporcionado'}</p>
-      <p><strong>Correo:</strong> ${email || 'No proporcionado'}</p>
-      <p><strong>Mensaje:</strong></p>
-      <p>${message || 'Sin mensaje'}</p>
-    `
-
     try {
-      const response = await fetch('https://api.resend.com/emails', {
+      const response = await fetch(CONTACT_FUNCTION_URL, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${RESEND_API_KEY}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: RESEND_FROM,
-          to: [RESEND_TO],
-          reply_to: email || undefined,
-          subject,
-          html: bodyHtml,
+          name,
+          email,
+          message,
         }),
       })
 
       if (!response.ok) {
         const errorText = await response.text()
-        throw new Error(`Resend error: ${response.status} ${errorText}`)
+        throw new Error(`Servicio de contacto: ${response.status} ${errorText}`)
       }
 
       setStatus('success')
       formRef.current.reset()
     } catch (err) {
-      console.error('Resend error:', err)
+      console.error('Contact service error:', err)
       setErrMsg('No se pudo enviar el mensaje. Por favor intenta más tarde.')
       setStatus('error')
     }
@@ -217,10 +204,10 @@ export default function Contact() {
                   )}
                 </button>
 
-                {!RESEND_API_KEY && (
+                {!CONTACT_FUNCTION_URL && (
                   <p className="form-warning" role="note">
-                    <FaExclamationTriangle aria-hidden="true" /> Resend no está configurado. Crea un archivo .env con
-                    VITE_RESEND_API_KEY (ver .env.example).
+                    <FaExclamationTriangle aria-hidden="true" /> El servicio de contacto no está configurado. Añade
+                    VITE_CONTACT_FUNCTION_URL en .env (ver .env.example).
                   </p>
                 )}
               </form>
