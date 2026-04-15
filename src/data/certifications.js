@@ -7,6 +7,7 @@ export const certifications = [
     icon: 'FaRobot',
     badgeColor: '#00e5ff',
     detail: '6 horas · Romuald Fons & Brais Moure',
+    image: '/Desarrollo%20IA.jpeg',
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const certifications = [
     icon: 'FaShieldAlt',
     badgeColor: '#7c4dff',
     detail: '6 horas · Técnicas de detección de vulnerabilidades y defensa digital',
+    image: '/Ciberseguridad.jpeg',
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export const certifications = [
     icon: 'FaChartLine',
     badgeColor: '#00ffa3',
     detail: '6 horas · Estrategia, visibilidad y rentabilidad de cada acción',
+    image: '/Marketing.jpeg',
   },
   {
     id: 4,
@@ -35,6 +38,17 @@ export const certifications = [
     badgeColor: '#0088cc',
     detail: 'Instructor: Dr. Angela Yu · Certificate no: UC-895c182e-3c45-4aa8-b777-81e7a5f08ade',
     url: 'https://ude.my/UC-895c182e-3c45-4aa8-b777-81e7a5f08ade',
+    image: '/Udemy%20Full%20Stack.jpeg',
+  },
+  {
+    id: 5,
+    name: 'Certificado de Bases de Datos',
+    issuer: 'BIG school · SQL y Modelado de Datos',
+    year: '2026',
+    icon: 'FaDatabase',
+    badgeColor: '#00ffa3',
+    detail: '6 horas · Consultas, normalización y práctica en MySQL',
+    image: '/Database.jpeg',
   },
 ]
 

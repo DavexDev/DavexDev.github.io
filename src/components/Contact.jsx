@@ -11,11 +11,10 @@ import {
   FaExclamationTriangle,
   FaComments,
 } from 'react-icons/fa'
-import emailjs from '@emailjs/browser'
 
-const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+const RESEND_API_KEY = import.meta.env.VITE_RESEND_API_KEY
+const RESEND_TO = 'xdave418@gmail.com'
+const RESEND_FROM = 'Contacto Portfolio <contacto@davexdev.com>'
 
 export default function Contact() {
   const formRef = useRef(null)
@@ -27,12 +26,50 @@ export default function Contact() {
     setStatus('sending')
     setErrMsg('')
 
+    if (!RESEND_API_KEY) {
+      setErrMsg('El servicio de correo no está configurado. Añade VITE_RESEND_API_KEY en .env.')
+      setStatus('error')
+      return
+    }
+
+    const formData = new FormData(formRef.current)
+    const name = formData.get('from_name')?.toString().trim()
+    const email = formData.get('from_email')?.toString().trim()
+    const message = formData.get('message')?.toString().trim()
+
+    const subject = `Nuevo mensaje desde el portafolio: ${name || 'Contacto'}`
+    const bodyHtml = `
+      <p><strong>Nombre:</strong> ${name || 'No proporcionado'}</p>
+      <p><strong>Correo:</strong> ${email || 'No proporcionado'}</p>
+      <p><strong>Mensaje:</strong></p>
+      <p>${message || 'Sin mensaje'}</p>
+    `
+
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${RESEND_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: RESEND_FROM,
+          to: [RESEND_TO],
+          reply_to: email || undefined,
+          subject,
+          html: bodyHtml,
+        }),
+      })
+
+      if (!response.ok) {
+        const errorText = await response.text()
+        throw new Error(`Resend error: ${response.status} ${errorText}`)
+      }
+
       setStatus('success')
       formRef.current.reset()
     } catch (err) {
-      console.error('EmailJS error:', err)
+      console.error('Resend error:', err)
       setErrMsg('No se pudo enviar el mensaje. Por favor intenta más tarde.')
       setStatus('error')
     }
@@ -180,10 +217,10 @@ export default function Contact() {
                   )}
                 </button>
 
-                {!SERVICE_ID && (
+                {!RESEND_API_KEY && (
                   <p className="form-warning" role="note">
-                    <FaExclamationTriangle aria-hidden="true" /> EmailJS no está configurado. Crea un archivo .env con las
-                    variables de VITE_EMAILJS_* (ver .env.example).
+                    <FaExclamationTriangle aria-hidden="true" /> Resend no está configurado. Crea un archivo .env con
+                    VITE_RESEND_API_KEY (ver .env.example).
                   </p>
                 )}
               </form>
