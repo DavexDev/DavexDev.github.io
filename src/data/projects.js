@@ -10,7 +10,7 @@ export const projects = [
       { label: 'Ver proyecto', href: 'https://digitalcaregt.github.io', primary: true, icon: 'FaExternalLinkAlt' },
       { label: 'Repositorio', href: 'https://github.com/davexdev', primary: false, icon: 'FaGithub' },
     ],
-    cover: 'chart-clientes.jpg',
+    cover: '/chart-clientes.jpg',
     coverAlt: 'Dashboard de clientes para Digital Care',
   },
   {
@@ -24,7 +24,7 @@ export const projects = [
       { label: 'Probar demo', href: 'https://davexdev.github.io/hanoi.html', primary: true, icon: 'FaPlayCircle' },
       { label: 'Código', href: 'https://github.com/davexdev/davexdev.github.io', primary: false, icon: 'FaCode' },
     ],
-    cover: 'hanoi-cover.jpg',
+    cover: '/hanoi-cover.jpg',
     coverAlt: 'Demo interactiva Torre de Hanoi',
   },
   {
@@ -37,7 +37,7 @@ export const projects = [
     links: [
       { label: 'Ver en GitHub', href: 'https://github.com/davexdev/etl-system', primary: true, icon: 'FaGithub' },
     ],
-    cover: 'chart-productos.jpg',
+    cover: '/chart-productos.jpg',
     coverAlt: 'Dashboard de productos y análisis',
   },
   {
@@ -51,7 +51,7 @@ export const projects = [
       { label: 'Probar demo', href: 'https://davexdev.github.io/snake.html', primary: true, icon: 'FaPlayCircle' },
       { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
     ],
-    cover: 'nake-cover.jpg',
+    cover: '/nake-cover.jpg',
     coverAlt: 'Juego Snake clásico',
   },
 ]
