@@ -10,7 +10,7 @@ export const education = [
   },
   {
     id: 2,
-    degree: 'Perito en Computación',
+    degree: 'Bachiller en Computación con Orientación Comercial',
     institution: 'Instituto Diversificado',
     period: '2019 – 2021',
     description:
