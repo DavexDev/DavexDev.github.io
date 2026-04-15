@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
+import { FaMoon, FaSun } from 'react-icons/fa'
 import { ThemeContext } from '../App'
 
 const NAV_LINKS = [
@@ -66,7 +67,7 @@ export default function Navbar() {
             aria-label={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
             title={theme === 'dark' ? 'Modo claro' : 'Modo oscuro'}
           >
-            {theme === 'dark' ? '☀️' : '🌙'}
+            {theme === 'dark' ? <FaSun aria-hidden="true" /> : <FaMoon aria-hidden="true" />}
           </button>
         </div>
       </div>
