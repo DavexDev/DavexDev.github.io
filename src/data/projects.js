@@ -10,8 +10,8 @@ export const projects = [
       { label: 'Ver proyecto', href: 'https://digitalcaregt.github.io', primary: true, icon: 'FaExternalLinkAlt' },
       { label: 'Repositorio', href: 'https://github.com/davexdev', primary: false, icon: 'FaGithub' },
     ],
-    cover: 'digitalcare-cover.jpg',
-    coverAlt: 'Captura del sitio Digital Care',
+    cover: 'chart-clientes.jpg',
+    coverAlt: 'Dashboard de clientes para Digital Care',
   },
   {
     id: 2,
@@ -37,8 +37,8 @@ export const projects = [
     links: [
       { label: 'Ver en GitHub', href: 'https://github.com/davexdev/etl-system', primary: true, icon: 'FaGithub' },
     ],
-    cover: 'etl-system.jpg',
-    coverAlt: 'ETL System – Panel de reportes',
+    cover: 'chart-productos.jpg',
+    coverAlt: 'Dashboard de productos y análisis',
   },
   {
     id: 4,
