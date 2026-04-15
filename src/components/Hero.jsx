@@ -71,12 +71,12 @@ export default function Hero() {
             </a>
             <a
               className="btn"
-              href="./cv.pdf"
-              title="Proximamente disponible"
-              aria-label="Descargar CV (próximamente)"
+              href="cv.pdf"
+              download="Deyvi_Xol_CV.pdf"
+              aria-label="Descargar CV"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
             >
-              <FaFileAlt aria-hidden="true" /> CV
+              <FaFileAlt aria-hidden="true" /> Descargar CV
             </a>
             <a
               className="btn"
