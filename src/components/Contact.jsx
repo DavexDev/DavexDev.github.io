@@ -200,13 +200,6 @@ export default function Contact() {
                     </>
                   )}
                 </button>
-
-                {!CONTACT_FUNCTION_URL && (
-                  <p className="form-warning" role="note">
-                    <FaExclamationTriangle aria-hidden="true" /> El servicio de contacto no está configurado. Añade
-                    VITE_CONTACT_FUNCTION_URL en .env (ver .env.example).
-                  </p>
-                )}
               </form>
             )}
           </div>
