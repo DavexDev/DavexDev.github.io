@@ -52,8 +52,9 @@ export default function Contact() {
     try {
       // Enviar notificación a ti
       await emailjs.send(serviceId, templateId, templateParams, publicKey)
-      // Enviar auto-reply al visitante
-      await emailjs.send(serviceId, 'template_hzams8l', templateParams, publicKey)
+      // Enviar auto-reply al visitante (no bloquea si falla)
+      emailjs.send(serviceId, 'template_hzams8l', templateParams, publicKey)
+        .catch(err => console.warn('Auto-reply falló:', err))
       setStatus('success')
       formRef.current.reset()
     } catch (err) {
