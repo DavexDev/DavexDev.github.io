@@ -43,6 +43,7 @@ export default function Contact() {
 
     const formData = new FormData(formRef.current)
     const templateParams = {
+      to_email: 'xdave418@gmail.com',
       from_name: formData.get('from_name')?.toString().trim(),
       from_email: formData.get('from_email')?.toString().trim(),
       message: formData.get('message')?.toString().trim(),
