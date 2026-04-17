@@ -1,4 +1,5 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import emailjs from 'emailjs-com'
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -12,51 +13,47 @@ import {
   FaComments,
 } from 'react-icons/fa'
 
-const CONTACT_FUNCTION_URL = import.meta.env.VITE_CONTACT_FUNCTION_URL
-
 export default function Contact() {
   const formRef = useRef(null)
   const [status, setStatus] = useState('idle') // idle | sending | success | error
   const [errMsg, setErrMsg] = useState('')
+
+  useEffect(() => {
+    // Initialize EmailJS
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    if (publicKey) {
+      emailjs.init(publicKey)
+    }
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('sending')
     setErrMsg('')
 
-    if (!CONTACT_FUNCTION_URL) {
-      setErrMsg('El servicio de contacto no está configurado. Añade VITE_CONTACT_FUNCTION_URL en .env.')
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+    if (!serviceId || !templateId || !publicKey) {
+      setErrMsg('El servicio de correo no está configurado. Verifica .env.')
       setStatus('error')
       return
     }
 
     const formData = new FormData(formRef.current)
-    const name = formData.get('from_name')?.toString().trim()
-    const email = formData.get('from_email')?.toString().trim()
-    const message = formData.get('message')?.toString().trim()
+    const templateParams = {
+      from_name: formData.get('from_name')?.toString().trim(),
+      from_email: formData.get('from_email')?.toString().trim(),
+      message: formData.get('message')?.toString().trim(),
+    }
 
     try {
-      const response = await fetch(CONTACT_FUNCTION_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          message,
-        }),
-      })
-
-      if (!response.ok) {
-        const errorText = await response.text()
-        throw new Error(`Servicio de contacto: ${response.status} ${errorText}`)
-      }
-
+      await emailjs.send(serviceId, templateId, templateParams, publicKey)
       setStatus('success')
       formRef.current.reset()
     } catch (err) {
-      console.error('Contact service error:', err)
+      console.error('EmailJS error:', err)
       setErrMsg('No se pudo enviar el mensaje. Por favor intenta más tarde.')
       setStatus('error')
     }
