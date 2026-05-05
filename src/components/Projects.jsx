@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaExternalLinkAlt, FaGithub, FaPlayCircle, FaCode } from 'react-icons/fa'
+import { FaArrowUpRightFromSquare } from 'react-icons/fa6'
 import { projects } from '../data/projects'
+import { ContainerScroll } from './ContainerScroll'
 
 const LINK_ICON_MAP = {
   FaExternalLinkAlt,
@@ -25,11 +27,23 @@ export default function Projects() {
       ? projects
       : projects.filter((p) => p.category === active)
 
-  return (
-    <section id="proyectos" className="section">
-      <div className="container">
-        <h2 className="section-title">Proyectos</h2>
+  const orderedProjects = [...filtered].sort(
+    (left, right) => Number(Boolean(right.featured)) - Number(Boolean(left.featured))
+  )
 
+  const titleContent = (
+    <>
+      <h2 className="section-title">Proyectos</h2>
+      <p className="projects-intro muted">
+        Una mezcla de productos propios y webs en produccion para clientes reales, con enfoque en identidad,
+        conversion y presencia comercial.
+      </p>
+    </>
+  )
+
+  return (
+    <section id="proyectos" className="section" style={{ paddingBottom: 0 }}>
+      <ContainerScroll titleComponent={titleContent}>
         {/* Filter tabs */}
         <div className="filter-tabs" role="tablist" aria-label="Filtrar proyectos por categoría">
           {CATEGORIES.map((cat) => (
@@ -48,7 +62,7 @@ export default function Projects() {
         {/* Grid */}
         <motion.div layout className="projects-grid">
           <AnimatePresence mode="popLayout">
-            {filtered.map((project) => (
+            {orderedProjects.map((project) => (
               <motion.article
                 key={project.id}
                 layout
@@ -56,19 +70,38 @@ export default function Projects() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.94 }}
                 transition={{ duration: 0.22 }}
-                className="card project-card"
+                className={`card project-card${project.featured ? ' featured' : ''}`}
               >
-                <img
-                  src={project.cover}
-                  alt={project.coverAlt}
-                  className="project-cover"
-                  loading="lazy"
-                />
+                {project.cover ? (
+                  <img
+                    src={project.cover}
+                    alt={project.coverAlt}
+                    className="project-cover"
+                    loading="lazy"
+                    style={project.coverPosition ? { objectPosition: project.coverPosition } : undefined}
+                  />
+                ) : (
+                  <div className={`project-cover project-cover--brand ${project.coverClass || ''}`}>
+                    <div className="project-cover-overlay" />
+                    <div className="project-cover-content">
+                      {project.coverEyebrow && <span className="project-cover-eyebrow">{project.coverEyebrow}</span>}
+                      <strong>{project.title}</strong>
+                      {project.coverCaption && <span>{project.coverCaption}</span>}
+                    </div>
+                    <span className="project-cover-link">
+                      <FaArrowUpRightFromSquare aria-hidden="true" />
+                    </span>
+                  </div>
+                )}
                 <div className="project-body">
-                  <h3>{project.title}</h3>
+                  <div className="project-heading-row">
+                    <h3>{project.title}</h3>
+                    {project.badge && <span className="project-badge">{project.badge}</span>}
+                  </div>
                   <p className="muted" style={{ fontSize: '0.89rem', lineHeight: 1.6 }}>
                     {project.description}
                   </p>
+                  {project.outcome && <p className="project-outcome">{project.outcome}</p>}
                   <div className="tags">
                     {project.tags.map((tag) => (
                       <span key={tag} className="tag">{tag}</span>
@@ -97,7 +130,7 @@ export default function Projects() {
             ))}
           </AnimatePresence>
         </motion.div>
-      </div>
+      </ContainerScroll>
     </section>
   )
 }
