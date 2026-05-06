@@ -1273,3 +1273,136 @@ h3 {
     padding: 1.25rem 1rem 1.5rem;
   }
 }
+
+/* ================================================================
+   STICKY SCROLL PROJECTS
+   ================================================================ */
+.ssp-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 60vh;
+}
+
+.ssp-sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem 1.25rem;
+}
+
+.ssp-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  width: 100%;
+  max-width: 860px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden;
+  transform-origin: top center;
+  box-shadow:
+    0 4px 16px rgba(0,0,0,0.28),
+    0 12px 40px rgba(0,0,0,0.22);
+}
+
+.ssp-cover {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.ssp-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ssp-cover-brand {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #0e172f, #0a2b4e 60%, #08111f);
+  color: var(--text);
+  gap: 0.35rem;
+}
+
+.ssp-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--primary) 18%, transparent);
+  color: var(--primary);
+  border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.ssp-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.ssp-info {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.5rem 1.5rem;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.ssp-title {
+  font-size: 1.05rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.ssp-desc {
+  font-size: 0.83rem;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .ssp-card {
+    grid-template-columns: 1fr;
+    max-width: 95vw;
+  }
+
+  .ssp-cover {
+    height: 180px;
+  }
+
+  .ssp-info {
+    padding: 1rem;
+  }
+
+  .ssp-wrap {
+    padding-bottom: 30vh;
+  }
+}

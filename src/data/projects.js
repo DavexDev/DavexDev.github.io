@@ -42,19 +42,20 @@ export const projects = [
     id: 103,
     title: 'SCADA',
     description:
-      'Sitio corporativo para empresa de control y automatizacion industrial, construido en WordPress y planteado para una futura migracion a Laravel.',
+      'Proyecto corporativo de automatizacion industrial evolucionado de una primera version en WordPress a una nueva version en Laravel con narrativa comercial mas fuerte, secciones de servicios, casos de exito y planes.',
     outcome:
-      'Proyecto profesional con enfoque en servicios tecnicos, testimonios, FAQ y evolucion posterior hacia una base mas escalable.',
-    tags: ['WordPress', 'Automatizacion', 'Industrial', 'Migracion a Laravel'],
+      'La version Laravel mejora rendimiento, escalabilidad y posicionamiento de marca, manteniendo continuidad funcional entre versiones.',
+    tags: ['WordPress v1', 'Laravel v2', 'Automatizacion', 'Industrial'],
     category: 'web',
-    badge: 'En evolucion',
+    badge: 'Evolucionado',
     coverEyebrow: 'Control y automatizacion',
-    coverCaption: 'Servicios industriales con base actual en WordPress.',
+    coverCaption: 'Version Laravel con enfoque comercial e industrial.',
     coverClass: 'project-cover--industrial',
-    cover: '/scada-cover.jpg',
-    coverAlt: 'Sitio web SCADA - control y automatización industrial',
+    cover: '/EVOSCADA.jpeg',
+    coverAlt: 'SCADA version Laravel - automatizacion y control industrial',
     links: [
-      { label: 'Ver sitio', href: 'https://scada.com.gt/', primary: true, icon: 'FaExternalLinkAlt' },
+      { label: 'Ver Laravel', href: 'https://seminario.apex.com.gt/scada/es', primary: true, icon: 'FaExternalLinkAlt' },
+      { label: 'Ver WordPress', href: 'https://scada.com.gt/', primary: false, icon: 'FaExternalLinkAlt' },
     ],
   },
   {
