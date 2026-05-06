@@ -477,18 +477,37 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
-  font-size: 0.66rem;
-  letter-spacing: 0.02em;
-  font-weight: 600;
+  width: 34px;
+  height: 34px;
   color: var(--text);
   background: color-mix(in srgb, var(--surface) 76%, transparent);
   border: 1px solid color-mix(in srgb, var(--text) 22%, transparent);
-  border-radius: 999px;
-  padding: 0.2rem 0.55rem;
+  border-radius: 50%;
   backdrop-filter: blur(7px);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.avatar-orbit-icon {
+  font-size: 1.06rem;
+}
+
+.avatar-orbit-tooltip {
+  position: absolute;
+  bottom: -1.65rem;
+  left: 50%;
+  translate: -50% 0;
+  pointer-events: none;
+  opacity: 0;
+  font-size: 0.58rem;
+  line-height: 1;
+  padding: 0.2rem 0.35rem;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--surface) 86%, #000 14%);
+  border: 1px solid color-mix(in srgb, var(--text) 24%, transparent);
+  color: var(--text);
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
 }
 
 .avatar-orbit-skill--frontend {
@@ -519,6 +538,10 @@ h3 {
 .avatar-orbit-skill:hover {
   color: var(--primary);
   border-color: color-mix(in srgb, var(--primary) 60%, transparent);
+}
+
+.avatar-orbit-skill:hover .avatar-orbit-tooltip {
+  opacity: 1;
 }
 
 .avatar-orbit:hover .avatar-orbit-layer {
@@ -1274,8 +1297,12 @@ h3 {
   }
 
   .avatar-orbit-skill {
-    font-size: 0.61rem;
-    padding: 0.16rem 0.45rem;
+    width: 30px;
+    height: 30px;
+  }
+
+  .avatar-orbit-icon {
+    font-size: 0.95rem;
   }
 
   .hero-sub {
@@ -1401,11 +1428,16 @@ h3 {
   }
 
   .avatar-orbit-skill {
-    font-size: 0.58rem;
-    padding: 0.14rem 0.4rem;
-    max-width: 86px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    width: 28px;
+    height: 28px;
+  }
+
+  .avatar-orbit-icon {
+    font-size: 0.85rem;
+  }
+
+  .avatar-orbit-tooltip {
+    display: none;
   }
 }
 
