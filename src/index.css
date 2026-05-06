@@ -391,10 +391,21 @@ h3 {
 .hero-avatar {
   display: grid;
   place-items: center;
+  min-height: 520px;
+}
+
+.avatar-orbit {
+  position: relative;
+  width: 470px;
+  height: 470px;
+  display: grid;
+  place-items: center;
 }
 
 .avatar-ring {
   --s: 220px;
+  position: relative;
+  z-index: 12;
   width: var(--s);
   height: var(--s);
   border-radius: 50%;
@@ -414,6 +425,116 @@ h3 {
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid var(--bg);
+}
+
+.avatar-orbit-path {
+  position: absolute;
+  inset: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  border: 1px dashed color-mix(in srgb, var(--primary) 25%, transparent);
+  pointer-events: none;
+}
+
+.avatar-orbit-path--1 {
+  width: 268px;
+  height: 268px;
+}
+
+.avatar-orbit-path--2 {
+  width: 364px;
+  height: 364px;
+  border-color: color-mix(in srgb, var(--primary-2) 25%, transparent);
+}
+
+.avatar-orbit-path--3 {
+  width: 458px;
+  height: 458px;
+  border-color: color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.avatar-orbit-layer {
+  position: absolute;
+  inset: 0;
+  animation: orbit-spin var(--orbit-duration) linear infinite;
+  opacity: var(--orbit-opacity);
+}
+
+.avatar-orbit-layer--reverse {
+  animation-name: orbit-spin-reverse;
+}
+
+.avatar-orbit-skill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:
+    rotate(var(--orbit-angle))
+    translateX(var(--orbit-radius))
+    rotate(calc(-1 * var(--orbit-angle)));
+  transform-origin: center;
+  translate: -50% -50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: 0.66rem;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  color: var(--text);
+  background: color-mix(in srgb, var(--surface) 76%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 22%, transparent);
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+  backdrop-filter: blur(7px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.avatar-orbit-skill--frontend {
+  color: #67e8f9;
+  border-color: color-mix(in srgb, #67e8f9 58%, transparent);
+}
+
+.avatar-orbit-skill--backend {
+  color: #86efac;
+  border-color: color-mix(in srgb, #86efac 58%, transparent);
+}
+
+.avatar-orbit-skill--data {
+  color: #fde68a;
+  border-color: color-mix(in srgb, #fde68a 58%, transparent);
+}
+
+.avatar-orbit-skill--devops {
+  color: #c4b5fd;
+  border-color: color-mix(in srgb, #c4b5fd 58%, transparent);
+}
+
+.avatar-orbit-skill--security {
+  color: #fca5a5;
+  border-color: color-mix(in srgb, #fca5a5 58%, transparent);
+}
+
+.avatar-orbit-skill:hover {
+  color: var(--primary);
+  border-color: color-mix(in srgb, var(--primary) 60%, transparent);
+}
+
+.avatar-orbit:hover .avatar-orbit-layer {
+  animation-play-state: paused;
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-spin-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
 /* ================================================================
@@ -1129,6 +1250,32 @@ h3 {
 
   .hero-avatar {
     order: -1;
+    min-height: 430px;
+  }
+
+  .avatar-orbit {
+    width: 390px;
+    height: 390px;
+  }
+
+  .avatar-orbit-path--1 {
+    width: 238px;
+    height: 238px;
+  }
+
+  .avatar-orbit-path--2 {
+    width: 312px;
+    height: 312px;
+  }
+
+  .avatar-orbit-path--3 {
+    width: 382px;
+    height: 382px;
+  }
+
+  .avatar-orbit-skill {
+    font-size: 0.61rem;
+    padding: 0.16rem 0.45rem;
   }
 
   .hero-sub {
@@ -1230,6 +1377,35 @@ h3 {
 
   .avatar-ring {
     --s: 180px;
+  }
+
+  .hero-avatar {
+    min-height: 280px;
+  }
+
+  .avatar-orbit {
+    width: 260px;
+    height: 260px;
+  }
+
+  .avatar-orbit-path--2,
+  .avatar-orbit-path--3,
+  .avatar-orbit-layer--ring-2,
+  .avatar-orbit-layer--ring-3 {
+    display: none;
+  }
+
+  .avatar-orbit-path--1 {
+    width: 244px;
+    height: 244px;
+  }
+
+  .avatar-orbit-skill {
+    font-size: 0.58rem;
+    padding: 0.14rem 0.4rem;
+    max-width: 86px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

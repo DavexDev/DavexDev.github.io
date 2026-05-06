@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { FaBriefcase, FaRocket, FaEnvelope, FaFileAlt, FaGithub } from 'react-icons/fa'
+import AvatarOrbitSkills from './AvatarOrbitSkills'
 
 const ROLES = [
   'Desarrollador Web Jr.',
@@ -92,13 +93,7 @@ export default function Hero() {
 
         {/* Avatar */}
         <div className="hero-avatar">
-          <div className="avatar-ring">
-            <img
-              src="avatar.jpg"
-              alt="Foto de perfil de Deyvi Joel Xol"
-              loading="eager"
-            />
-          </div>
+          <AvatarOrbitSkills />
         </div>
       </div>
     </section>
