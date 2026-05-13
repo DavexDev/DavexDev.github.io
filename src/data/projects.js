@@ -3,10 +3,10 @@ export const projects = [
     id: 101,
     title: 'Enervisa',
     description:
-      'Sitio corporativo para empresa del sector energetico en Guatemala, enfocado en comunicar servicios de generacion, transmision y distribucion electrica, mostrar proyectos ejecutados y facilitar el contacto comercial.',
+      'Plataforma corporativa para empresa de ingenieria electrica en Guatemala (generacion, transmision, subestaciones, solar fotovoltaica y mantenimiento predictivo). Incluye sitio publico y panel admin para gestionar servicios, galeria, mensajes y configuraciones dinamicas.',
     outcome:
-      'Proyecto destacado por su identidad visual fuerte, estructura comercial clara y enfoque institucional orientado a confianza.',
-    tags: ['Web corporativa', 'Sector energia', 'Lead generation', 'Brand presence'],
+      'Se entrego una solucion full web sobre Laravel 12 con contacto transaccional por Resend, miniaturas automaticas y estructura administrable sin depender de cambios directos en codigo.',
+    tags: ['Laravel 12', 'Tailwind CSS', 'MySQL', 'Three.js', 'Resend'],
     category: 'web',
     featured: true,
     badge: 'Destacado',
@@ -17,6 +17,7 @@ export const projects = [
     coverAlt: 'Sitio web Enervisa - sector energético Guatemala',
     links: [
       { label: 'Ver sitio', href: 'https://enervia.com.gt/', primary: true, icon: 'FaExternalLinkAlt' },
+      { label: 'Repositorio', href: 'https://github.com/app-piums/Enervisa.git', primary: false, icon: 'FaGithub' },
     ],
   },
   {
@@ -42,20 +43,71 @@ export const projects = [
     id: 103,
     title: 'SCADA',
     description:
-      'Proyecto corporativo de automatizacion industrial evolucionado de una primera version en WordPress a una nueva version en Laravel con narrativa comercial mas fuerte, secciones de servicios, casos de exito y planes.',
+      'Plataforma SaaS para negocios en Guatemala enfocada en dominio + hosting + herramientas digitales en un solo flujo. Incluye sitio de marketing, panel admin (Filament) y panel cliente con modulos de dominios, ordenes y solicitud de demo para Cobros con WhatsApp.',
     outcome:
-      'La version Laravel mejora rendimiento, escalabilidad y posicionamiento de marca, manteniendo continuidad funcional entre versiones.',
-    tags: ['WordPress v1', 'Laravel v2', 'Automatizacion', 'Industrial'],
+      'Evoluciono de una web corporativa hacia una propuesta de producto SaaS con arquitectura separada para SCADA y Cobros, integracion de ResellerClub para dominios y preparacion de pagos locales con Wompi.',
+    tags: ['Laravel 13', 'Filament 4', 'ResellerClub API', 'Wompi', 'SaaS Guatemala'],
     category: 'web',
     badge: 'Evolucionado',
-    coverEyebrow: 'Control y automatizacion',
-    coverCaption: 'Version Laravel con enfoque comercial e industrial.',
+    coverEyebrow: 'Dominios, hosting y SaaS',
+    coverCaption: 'SCADA + Cobros con enfoque comercial para Guatemala.',
     coverClass: 'project-cover--industrial',
     cover: '/EVOSCADA.jpeg',
-    coverAlt: 'SCADA version Laravel - automatizacion y control industrial',
+    coverAlt: 'SCADA.com.gt - plataforma SaaS para negocios en Guatemala',
     links: [
-      { label: 'Ver Laravel', href: 'https://seminario.apex.com.gt/scada/es', primary: true, icon: 'FaExternalLinkAlt' },
-      { label: 'Ver WordPress', href: 'https://scada.com.gt/', primary: false, icon: 'FaExternalLinkAlt' },
+      { label: 'Ver sitio', href: 'https://scada.com.gt/', primary: true, icon: 'FaExternalLinkAlt' },
+      { label: 'Ver version anterior', href: 'https://seminario.apex.com.gt/scada/es', primary: false, icon: 'FaExternalLinkAlt' },
+    ],
+  },
+  {
+    id: 104,
+    title: 'PIUMS Platform',
+    description:
+      'Marketplace de Economia Naranja para conectar clientes con artistas y cubrir el ciclo completo de reserva: descubrimiento, cotizacion, booking, pago, ejecucion y resena. Arquitectura monorepo con gateway, SDK y microservicios desacoplados.',
+    outcome:
+      'Proximo lanzamiento. Avance fuerte en backend modular (auth, catalogo, booking, pagos, reseñas, notificaciones, chat), estandarizacion GTQ y despliegue hibrido Docker/Kubernetes para desarrollo.',
+    tags: ['Node.js + TS', 'Express', 'Prisma', 'PostgreSQL', 'Redis'],
+    category: 'web',
+    badge: 'Proximamente',
+    coverEyebrow: 'Marketplace creativo',
+    coverCaption: 'Plataforma en construccion para clientes y artistas.',
+    coverClass: 'project-cover--industrial',
+    links: [
+      { label: 'Ver avance', href: 'https://github.com/app-piums/piums-platform', primary: true, icon: 'FaGithub' },
+    ],
+  },
+  {
+    id: 105,
+    title: 'PIUMS Web Client & Artist',
+    description:
+      'Doble aplicacion web en Next.js 14 (cliente y artista) con onboarding por rol, busqueda avanzada de artistas, flujo de booking, checkout, dashboards, agenda, mensajeria y ajustes operativos.',
+    outcome:
+      'Proximo lanzamiento. La prioridad actual es consolidar experiencia end-to-end, integraciones con SDK y estabilidad de modulos criticos (booking, chat, filtros y onboarding).',
+    tags: ['Next.js 14', 'Tailwind CSS', 'PiumsSDK', 'Stripe Checkout', 'Socket/Chat'],
+    category: 'web',
+    badge: 'Proximamente',
+    coverEyebrow: 'Web apps por rol',
+    coverCaption: 'Cliente y artista con experiencia especializada.',
+    coverClass: 'project-cover--energy',
+    links: [
+      { label: 'Ver avance', href: 'https://github.com/app-piums/piums-platform', primary: true, icon: 'FaGithub' },
+    ],
+  },
+  {
+    id: 106,
+    title: 'PIUMS Mobile Apps',
+    description:
+      'Ecosistema mobile nativo para cliente y artista en iOS y Android, alineado al flujo web de PIUMS: autenticacion, reservas, agenda, servicios, mensajeria y perfil.',
+    outcome:
+      'Proximo lanzamiento. Base iOS ya documentada con SwiftUI + SwiftData + Firebase Auth/FCM y arquitectura MVVM, en paralelo al frente Android con Compose y Retrofit.',
+    tags: ['SwiftUI', 'SwiftData', 'Firebase Auth', 'Jetpack Compose', 'Retrofit'],
+    category: 'web',
+    badge: 'Proximamente',
+    coverEyebrow: 'Ecosistema mobile',
+    coverCaption: 'iOS y Android para artistas y clientes.',
+    coverClass: 'project-cover--restaurant',
+    links: [
+      { label: 'Ver avance', href: 'https://github.com/app-piums/piums-platform', primary: true, icon: 'FaGithub' },
     ],
   },
   {
