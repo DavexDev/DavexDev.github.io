@@ -457,25 +457,16 @@ h3 {
 .avatar-orbit-layer {
   position: absolute;
   inset: 0;
-  animation: orbit-spin var(--orbit-duration) linear infinite;
   opacity: var(--orbit-opacity);
   pointer-events: none;
-}
-
-.avatar-orbit-layer--reverse {
-  animation-name: orbit-spin-reverse;
 }
 
 .avatar-orbit-skill {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform:
-    rotate(var(--orbit-angle))
-    translateX(var(--orbit-radius))
-    rotate(calc(-1 * var(--orbit-angle)));
+  transform: translate(calc(var(--orbit-x) - 50%), calc(var(--orbit-y) - 50%)) scale(var(--orbit-scale, 1));
   transform-origin: center;
-  translate: -50% -50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -545,18 +536,6 @@ h3 {
 
 .avatar-orbit-skill:hover .avatar-orbit-tooltip {
   opacity: 1;
-}
-
-@keyframes orbit-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes orbit-spin-reverse {
-  to {
-    transform: rotate(-360deg);
-  }
 }
 
 /* ================================================================
