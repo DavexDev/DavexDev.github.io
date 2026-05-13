@@ -1502,6 +1502,7 @@ h3 {
   justify-content: center;
   width: 100%;
   padding: 1rem 1.25rem;
+  pointer-events: none;
 }
 
 .ssp-card {
@@ -1519,6 +1520,7 @@ h3 {
   box-shadow:
     0 4px 16px rgba(0,0,0,0.28),
     0 12px 40px rgba(0,0,0,0.22);
+  pointer-events: auto;
 }
 
 .ssp-cover {

@@ -10,14 +10,14 @@ const LINK_ICON_MAP = {
   FaCode,
 }
 
-function StickyCard({ i, project, progress, range, targetScale }) {
+function StickyCard({ i, project, progress, range, targetScale, stackOrder }) {
   const scale = useTransform(progress, range, [1, targetScale])
 
   const primaryLink = project.links?.find((l) => l.primary) ?? project.links?.[0]
   const LinkIcon = primaryLink ? LINK_ICON_MAP[primaryLink.icon] : null
 
   return (
-    <div className="ssp-sticky">
+    <div className="ssp-sticky" style={{ zIndex: stackOrder }}>
       <motion.div
         style={{
           scale,
@@ -93,6 +93,7 @@ export function StickyScrollProjects({ projects }) {
               progress={scrollYProgress}
               range={[i * (1 / projects.length), 1]}
               targetScale={targetScale}
+              stackOrder={projects.length - i}
             />
           )
         })}
