@@ -423,6 +423,7 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
   border-radius: 50%;
   border: 4px solid var(--bg);
 }
@@ -458,6 +459,7 @@ h3 {
   inset: 0;
   animation: orbit-spin var(--orbit-duration) linear infinite;
   opacity: var(--orbit-opacity);
+  pointer-events: none;
 }
 
 .avatar-orbit-layer--reverse {
@@ -486,6 +488,7 @@ h3 {
   backdrop-filter: blur(7px);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  pointer-events: none;
 }
 
 .avatar-orbit-icon {
@@ -542,10 +545,6 @@ h3 {
 
 .avatar-orbit-skill:hover .avatar-orbit-tooltip {
   opacity: 1;
-}
-
-.avatar-orbit:hover .avatar-orbit-layer {
-  animation-play-state: paused;
 }
 
 @keyframes orbit-spin {

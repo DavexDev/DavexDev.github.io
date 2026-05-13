@@ -94,7 +94,7 @@ export default function AvatarOrbitSkills() {
 
       <div className="avatar-ring">
         <img
-          src="avatar.jpg"
+          src="Avatar.png"
           alt="Foto de perfil de Deyvi Joel Xol"
           loading="eager"
         />
