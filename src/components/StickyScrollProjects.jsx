@@ -93,7 +93,7 @@ export function StickyScrollProjects({ projects }) {
               progress={scrollYProgress}
               range={[i * (1 / projects.length), 1]}
               targetScale={targetScale}
-              stackOrder={projects.length - i}
+              stackOrder={i + 1}
             />
           )
         })}

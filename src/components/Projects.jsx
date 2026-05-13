@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FaExternalLinkAlt, FaGithub, FaPlayCircle, FaCode } from 'react-icons/fa'
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6'
 import { projects } from '../data/projects'
+import { StickyScrollProjects } from './StickyScrollProjects'
 
 const LINK_ICON_MAP = {
   FaExternalLinkAlt,
@@ -55,78 +56,82 @@ export default function Projects() {
         </div>
       </div>
 
-      <div className="container">
-        <motion.div layout className="projects-grid">
-          <AnimatePresence mode="popLayout">
-            {orderedProjects.map((project) => (
-              <motion.article
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.94 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.94 }}
-                transition={{ duration: 0.22 }}
-                className={`card project-card${project.featured ? ' featured' : ''}`}
-              >
-                {project.cover ? (
-                  <img
-                    src={project.cover}
-                    alt={project.coverAlt}
-                    className="project-cover"
-                    loading="lazy"
-                    style={project.coverPosition ? { objectPosition: project.coverPosition } : undefined}
-                  />
-                ) : (
-                  <div className={`project-cover project-cover--brand ${project.coverClass || ''}`}>
-                    <div className="project-cover-overlay" />
-                    <div className="project-cover-content">
-                      {project.coverEyebrow && <span className="project-cover-eyebrow">{project.coverEyebrow}</span>}
-                      <strong>{project.title}</strong>
-                      {project.coverCaption && <span>{project.coverCaption}</span>}
+      {active === 'all' ? (
+        <StickyScrollProjects projects={orderedProjects} />
+      ) : (
+        <div className="container">
+          <motion.div layout className="projects-grid">
+            <AnimatePresence mode="popLayout">
+              {orderedProjects.map((project) => (
+                <motion.article
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.94 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.94 }}
+                  transition={{ duration: 0.22 }}
+                  className={`card project-card${project.featured ? ' featured' : ''}`}
+                >
+                  {project.cover ? (
+                    <img
+                      src={project.cover}
+                      alt={project.coverAlt}
+                      className="project-cover"
+                      loading="lazy"
+                      style={project.coverPosition ? { objectPosition: project.coverPosition } : undefined}
+                    />
+                  ) : (
+                    <div className={`project-cover project-cover--brand ${project.coverClass || ''}`}>
+                      <div className="project-cover-overlay" />
+                      <div className="project-cover-content">
+                        {project.coverEyebrow && <span className="project-cover-eyebrow">{project.coverEyebrow}</span>}
+                        <strong>{project.title}</strong>
+                        {project.coverCaption && <span>{project.coverCaption}</span>}
+                      </div>
+                      <span className="project-cover-link">
+                        <FaArrowUpRightFromSquare aria-hidden="true" />
+                      </span>
                     </div>
-                    <span className="project-cover-link">
-                      <FaArrowUpRightFromSquare aria-hidden="true" />
-                    </span>
+                  )}
+                  <div className="project-body">
+                    <div className="project-heading-row">
+                      <h3>{project.title}</h3>
+                      {project.badge && <span className="project-badge">{project.badge}</span>}
+                    </div>
+                    <p className="muted" style={{ fontSize: '0.89rem', lineHeight: 1.6 }}>
+                      {project.description}
+                    </p>
+                    {project.outcome && <p className="project-outcome">{project.outcome}</p>}
+                    <div className="tags">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="tag">{tag}</span>
+                      ))}
+                    </div>
+                    <div className="project-actions">
+                      {project.links.map((link) => {
+                        const LinkIcon = LINK_ICON_MAP[link.icon]
+                        return (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`btn${link.primary ? ' primary' : ''}`}
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
+                          >
+                            {LinkIcon && <LinkIcon aria-hidden="true" size={14} />}
+                            {link.label}
+                          </a>
+                        )
+                      })}
+                    </div>
                   </div>
-                )}
-                <div className="project-body">
-                  <div className="project-heading-row">
-                    <h3>{project.title}</h3>
-                    {project.badge && <span className="project-badge">{project.badge}</span>}
-                  </div>
-                  <p className="muted" style={{ fontSize: '0.89rem', lineHeight: 1.6 }}>
-                    {project.description}
-                  </p>
-                  {project.outcome && <p className="project-outcome">{project.outcome}</p>}
-                  <div className="tags">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="tag">{tag}</span>
-                    ))}
-                  </div>
-                  <div className="project-actions">
-                    {project.links.map((link) => {
-                      const LinkIcon = LINK_ICON_MAP[link.icon]
-                      return (
-                        <a
-                          key={link.href}
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`btn${link.primary ? ' primary' : ''}`}
-                          style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
-                        >
-                          {LinkIcon && <LinkIcon aria-hidden="true" size={14} />}
-                          {link.label}
-                        </a>
-                      )
-                    })}
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      </div>
+                </motion.article>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+      )}
     </section>
   )
 }
