@@ -172,4 +172,24 @@ export const projects = [
     cover: '/nake-cover.jpg',
     coverAlt: 'Juego Snake clásico',
   },
-]
+  {
+    id: 107,
+    title: 'Parqueo El Roble',
+    description:
+      'Plataforma web para reservas y administración de parqueos en Esquipulas. Incluye panel de administración, gestión de usuarios, reservas, comisiones, métricas y notificaciones. UI moderna, onboarding guiado y despliegue en Vercel.',
+    outcome:
+      'Desarrollado 100% propio: diseño, frontend, backend y despliegue. Integración de roles, paneles, y experiencia mobile-first.',
+    tags: ['Next.js 14', 'React', 'Tailwind CSS', 'Node.js', 'Vercel'],
+    category: 'web',
+    badge: 'Propio',
+    coverEyebrow: 'Reserva tu espacio',
+    coverCaption: 'Administra y reserva parqueos en Esquipulas.',
+    coverClass: 'project-cover--energy',
+    cover: '', // Puedes agregar una imagen si tienes
+    coverAlt: 'Parqueo El Roble - plataforma de reservas',
+    links: [
+      { label: 'Ver sitio', href: 'https://parqueo-umber.vercel.app/', primary: true, icon: 'FaExternalLinkAlt' },
+      { label: 'Repositorio', href: 'https://github.com/DavexDev/parqueo', primary: false, icon: 'FaGithub' },
+    ],
+  }
+];
