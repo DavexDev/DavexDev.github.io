@@ -1,6 +1,6 @@
 ﻿import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaExternalLinkAlt, FaGithub, FaPlayCircle, FaCode } from 'react-icons/fa'
+import { FaExternalLinkAlt, FaGithub, FaPlayCircle, FaCode, FaUsers } from 'react-icons/fa'
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6'
 import { projects } from '../data/projects'
 import { StickyScrollProjects } from './StickyScrollProjects'
@@ -98,6 +98,12 @@ export default function Projects() {
                       <h3>{project.title}</h3>
                       {project.badge && <span className="project-badge">{project.badge}</span>}
                     </div>
+                    {project.collaborators && (
+                      <div className="project-collab">
+                        <FaUsers size={12} aria-hidden="true" />
+                        <span>Colaboración con <strong>{project.collaborators}</strong></span>
+                      </div>
+                    )}
                     <p className="muted" style={{ fontSize: '0.89rem', lineHeight: 1.6 }}>
                       {project.description}
                     </p>

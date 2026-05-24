@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { FaUsers } from 'react-icons/fa'
 import ReactLenis from 'lenis/react'
 import { FaExternalLinkAlt, FaGithub, FaPlayCircle, FaCode } from 'react-icons/fa'
 
@@ -55,6 +56,12 @@ function StickyCard({ i, project, progress, range, targetScale, stackOrder }) {
             </div>
           </div>
           <p className="ssp-desc muted">{project.description}</p>
+          {project.collaborators && (
+            <div className="project-collab" style={{ marginTop: '0.5rem' }}>
+              <FaUsers size={12} aria-hidden="true" />
+              <span>Colaboración con <strong>{project.collaborators}</strong></span>
+            </div>
+          )}
           {primaryLink && (
             <a
               href={primaryLink.href}

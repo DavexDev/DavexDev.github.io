@@ -733,6 +733,19 @@ h3 {
   padding: 0.32rem 0.55rem;
 }
 
+.project-collab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.45rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.project-collab strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
 .project-outcome {
   margin-top: 0.8rem;
   padding: 0.85rem 0.95rem;

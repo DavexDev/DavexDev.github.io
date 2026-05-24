@@ -2,6 +2,7 @@ export const projects = [
   {
     id: 101,
     title: 'Enervisa',
+    collaborators: 'SCADA',
     description:
       'Plataforma corporativa para empresa de ingenieria electrica en Guatemala (generacion, transmision, subestaciones, solar fotovoltaica y mantenimiento predictivo). Incluye sitio publico y panel admin para gestionar servicios, galeria, mensajes y configuraciones dinamicas.',
     outcome:
@@ -23,6 +24,7 @@ export const projects = [
   {
     id: 102,
     title: 'Restaurante Las Tejas',
+    collaborators: 'SCADA',
     description:
       'Web comercial para restaurante orientada a reservas, pedidos en linea y promocion de experiencias gastronomicas, eventos y espacios del negocio.',
     outcome:
@@ -42,6 +44,7 @@ export const projects = [
   {
     id: 103,
     title: 'SCADA',
+    collaborators: 'SCADA',
     description:
       'Plataforma SaaS para negocios en Guatemala enfocada en dominio + hosting + herramientas digitales en un solo flujo. Incluye sitio de marketing, panel admin (Filament) y panel cliente con modulos de dominios, ordenes y solicitud de demo para Cobros con WhatsApp.',
     outcome:
@@ -62,6 +65,7 @@ export const projects = [
   {
     id: 104,
     title: 'PIUMS Platform',
+    collaborators: 'PIUMS',
     description:
       'Marketplace de Economia Naranja para conectar clientes con artistas y cubrir el ciclo completo de reserva: descubrimiento, cotizacion, booking, pago, ejecucion y resena. Arquitectura monorepo con gateway, SDK y microservicios desacoplados.',
     outcome:
@@ -79,6 +83,7 @@ export const projects = [
   {
     id: 105,
     title: 'PIUMS Web Client & Artist',
+    collaborators: 'PIUMS',
     description:
       'Doble aplicacion web en Next.js 14 (cliente y artista) con onboarding por rol, busqueda avanzada de artistas, flujo de booking, checkout, dashboards, agenda, mensajeria y ajustes operativos.',
     outcome:
@@ -96,6 +101,7 @@ export const projects = [
   {
     id: 106,
     title: 'PIUMS Mobile Apps',
+    collaborators: 'PIUMS',
     description:
       'Ecosistema mobile nativo para cliente y artista en iOS y Android, alineado al flujo web de PIUMS: autenticacion, reservas, agenda, servicios, mensajeria y perfil.',
     outcome:
