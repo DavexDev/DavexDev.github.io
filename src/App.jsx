@@ -1,15 +1,17 @@
 import { createContext, useState, useEffect } from 'react'
-import Navbar         from './components/Navbar'
-import Hero           from './components/Hero'
-import About          from './components/About'
-import Resume         from './components/Resume'
-import Projects       from './components/Projects'
-import Skills         from './components/Skills'
-import Education      from './components/Education'
-import Certifications from './components/Certifications'
-import Contact        from './components/Contact'
-import Footer         from './components/Footer'
-import BackToTop      from './components/BackToTop'
+import Navbar              from './components/Navbar'
+import Hero                from './components/Hero'
+import About               from './components/About'
+import Resume              from './components/Resume'
+import Projects            from './components/Projects'
+import CurrentlyBuilding   from './components/CurrentlyBuilding'
+import Skills              from './components/Skills'
+import GitHubStats         from './components/GitHubStats'
+import Education           from './components/Education'
+import Certifications      from './components/Certifications'
+import Contact             from './components/Contact'
+import Footer              from './components/Footer'
+import BackToTop           from './components/BackToTop'
 
 export const ThemeContext = createContext({ theme: 'dark', toggleTheme: () => {} })
 
@@ -36,7 +38,9 @@ export default function App() {
         <About />
         <Resume />
         <Projects />
+        <CurrentlyBuilding />
         <Skills />
+        <GitHubStats />
         <Education />
         <Certifications />
         <Contact />

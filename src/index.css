@@ -753,55 +753,227 @@ h3 {
 }
 
 /* ================================================================
-   SKILLS
+   SKILLS — CATEGORIZED
    ================================================================ */
-.skills-grid {
+.skill-categories-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
 }
 
-.skill-item {
+.skill-category-card {
   background: color-mix(in srgb, var(--surface) 65%, transparent);
   border: 1px solid var(--border);
+  border-top: 3px solid var(--cat-color, var(--primary));
   border-radius: var(--radius-sm);
-  padding: 1rem 1.1rem;
+  padding: 1.25rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.skill-label {
+.skill-category-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-category-header {
   display: flex;
   align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.skill-category-icon {
+  display: flex;
+  align-items: center;
+  color: var(--cat-color, var(--primary));
+}
+
+.skill-category-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--cat-color, var(--primary));
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.72rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: color-mix(in srgb, var(--cat-color, var(--primary)) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cat-color, var(--primary)) 28%, transparent);
+  color: var(--text);
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease var(--chip-delay, 0s),
+              transform 0.3s ease var(--chip-delay, 0s);
+}
+
+.skill-category-card.is-visible .skill-chip {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ================================================================
+   CURRENTLY BUILDING
+   ================================================================ */
+.cb-intro {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-bottom: 2rem;
+}
+
+.cb-intro.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cb-badge {
+  display: inline-flex;
+  align-items: center;
   gap: 0.5rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  font-size: 0.75rem;
   font-weight: 600;
-  font-size: 0.92rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 1rem;
+}
+
+.cb-pulse-dot {
+  color: var(--accent);
+  animation: cb-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes cb-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
+
+.cb-project-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 22px rgba(0, 229, 255, 0.3);
+}
+
+[data-theme='light'] .cb-project-name {
+  text-shadow: none;
+}
+
+.cb-project-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.72;
+  max-width: 680px;
+  margin-bottom: 1.25rem;
+}
+
+.cb-tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.cb-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cb-pillar {
+  background: color-mix(in srgb, var(--surface) 65%, transparent);
+  border: 1px solid color-mix(in srgb, var(--pillar-color, var(--primary)) 20%, transparent);
+  border-left: 3px solid var(--pillar-color, var(--primary));
+  border-radius: var(--radius-sm);
+  padding: 1.1rem 1.2rem;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.45s ease var(--pillar-delay, 0s),
+              transform 0.45s ease var(--pillar-delay, 0s);
+}
+
+.cb-pillar.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cb-pillar-icon {
+  display: flex;
+  color: var(--pillar-color, var(--primary));
   margin-bottom: 0.6rem;
 }
 
-.skill-icon {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.skill-percent {
-  margin-left: auto;
+.cb-pillar-title {
   font-size: 0.88rem;
-  opacity: 0.75;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.4rem;
 }
 
-.skill-track {
-  height: 9px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--text) 8%, transparent);
-  overflow: hidden;
+.cb-pillar-desc {
+  font-size: 0.79rem;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
-.skill-fill {
+.cb-cta {
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease 0.55s, transform 0.5s ease 0.55s;
+}
+
+.cb-cta.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================================================================
+   GITHUB STATS
+   ================================================================ */
+.gh-stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.gh-streak-row {
+  display: flex;
+  justify-content: center;
+}
+
+.gh-stats-img {
   display: block;
-  height: 100%;
-  width: 0;
-  border-radius: inherit;
-  transition: width 1.4s cubic-bezier(0.2, 0.9, 0.2, 1);
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.gh-stats-img--wide {
+  max-width: 700px;
 }
 
 /* ================================================================
@@ -1295,6 +1467,22 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .skill-categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cb-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gh-stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .gh-stats-img--wide {
+    max-width: 100%;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
   }
@@ -1364,6 +1552,14 @@ h3 {
 
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .cb-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cb-project-name {
+    font-size: 1.3rem;
   }
 
   .project-card,

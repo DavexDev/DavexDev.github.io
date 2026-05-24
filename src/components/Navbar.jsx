@@ -3,12 +3,13 @@ import { FaMoon, FaSun } from 'react-icons/fa'
 import { ThemeContext } from '../App'
 
 const NAV_LINKS = [
-  { href: '#sobre-mi',       label: 'Sobre mí' },
-  { href: '#proyectos',      label: 'Proyectos' },
+  { href: '#sobre-mi',       label: 'Sobre mí'    },
+  { href: '#proyectos',      label: 'Proyectos'   },
+  { href: '#construyendo',   label: 'Building'    },
   { href: '#habilidades',    label: 'Habilidades' },
-  { href: '#educacion',      label: 'Educación' },
-  { href: '#certificaciones',label: 'Certs' },
-  { href: '#contacto',       label: 'Contacto' },
+  { href: '#educacion',      label: 'Educación'   },
+  { href: '#certificaciones',label: 'Certs'       },
+  { href: '#contacto',       label: 'Contacto'    },
 ]
 
 export default function Navbar() {

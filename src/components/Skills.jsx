@@ -1,20 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
-import {
-  FaCode,
-  FaGitAlt,
-  FaDatabase,
-  FaLinux,
-  FaShieldAlt,
-  FaTools,
-} from 'react-icons/fa'
-import { skills } from '../data/skills'
+import { FaServer, FaCode, FaMobileAlt, FaTools, FaSitemap } from 'react-icons/fa'
+import { skillCategories } from '../data/skills'
 
-const ICON_MAP = { FaCode, FaGitAlt, FaDatabase, FaLinux, FaShieldAlt, FaTools }
+const ICON_MAP = { FaServer, FaCode, FaMobileAlt, FaTools, FaSitemap }
 
-function SkillBar({ label, percent, icon, color }) {
-  const ref   = useRef(null)
-  const [w, setW] = useState(0)
-  const Icon = ICON_MAP[icon]
+function CategoryCard({ category }) {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
+  const Icon = ICON_MAP[category.icon]
 
   useEffect(() => {
     const el = ref.current
@@ -22,41 +15,38 @@ function SkillBar({ label, percent, icon, color }) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setW(percent)
+          setVisible(true)
           observer.unobserve(el)
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.15 }
     )
     observer.observe(el)
     return () => observer.disconnect()
-  }, [percent])
+  }, [])
 
   return (
-    <div className="skill-item" ref={ref}>
-      <div className="skill-label">
-        <span className="skill-icon" style={{ color }} aria-hidden="true">
-          {Icon && <Icon size={17} />}
+    <div
+      ref={ref}
+      className={`skill-category-card${visible ? ' is-visible' : ''}`}
+      style={{ '--cat-color': category.color }}
+    >
+      <div className="skill-category-header">
+        <span className="skill-category-icon" aria-hidden="true">
+          {Icon && <Icon size={18} />}
         </span>
-        <span>{label}</span>
-        <span className="skill-percent">{percent}%</span>
+        <h3 className="skill-category-title">{category.label}</h3>
       </div>
-      <div
-        className="skill-track"
-        role="progressbar"
-        aria-valuenow={percent}
-        aria-valuemin={0}
-        aria-valuemax={100}
-        aria-label={label}
-      >
-        <span
-          className="skill-fill"
-          style={{
-            width: `${w}%`,
-            background: `linear-gradient(90deg, ${color}, #00ffa3)`,
-            boxShadow: `0 0 10px ${color}66`,
-          }}
-        />
+      <div className="skill-chips">
+        {category.items.map((item, i) => (
+          <span
+            key={item}
+            className="skill-chip"
+            style={{ '--chip-delay': `${i * 0.05}s` }}
+          >
+            {item}
+          </span>
+        ))}
       </div>
     </div>
   )
@@ -67,12 +57,13 @@ export default function Skills() {
     <section id="habilidades" className="section">
       <div className="container">
         <h2 className="section-title">Habilidades Técnicas</h2>
-        <div className="skills-grid">
-          {skills.map((s) => (
-            <SkillBar key={s.label} {...s} />
+        <div className="skill-categories-grid">
+          {skillCategories.map((cat) => (
+            <CategoryCard key={cat.id} category={cat} />
           ))}
         </div>
       </div>
     </section>
   )
 }
+
