@@ -181,11 +181,11 @@ export const projects = [
       'Desarrollado 100% propio: diseño, frontend, backend y despliegue. Integración de roles, paneles, y experiencia mobile-first.',
     tags: ['Next.js 14', 'React', 'Tailwind CSS', 'Node.js', 'Vercel'],
     category: 'web',
-    badge: 'Propio',
+    badge: 'Académico',
     coverEyebrow: 'Reserva tu espacio',
     coverCaption: 'Administra y reserva parqueos en Esquipulas.',
     coverClass: 'project-cover--energy',
-    cover: '', // Puedes agregar una imagen si tienes
+    cover: '/parqueo-roble-cover.png',
     coverAlt: 'Parqueo El Roble - plataforma de reservas',
     links: [
       { label: 'Ver sitio', href: 'https://parqueo-umber.vercel.app/', primary: true, icon: 'FaExternalLinkAlt' },
