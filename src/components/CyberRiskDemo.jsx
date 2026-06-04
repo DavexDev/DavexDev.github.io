@@ -77,8 +77,62 @@ export default function CyberRiskDemo() {
   const risk       = getRisk(prediction)
 
   useEffect(() => {
-    // Plotly.react disabled temporarily - keeping component structure for testing
-    // TODO: Re-enable when Plotly loads properly in production
+    if (!chartRef.current) return
+    const xMax = Math.max(...dataset.map(d => d.x)) * 1.1
+    const xLine = [0, xMax]
+    const yLine = xLine.map(x => Math.max(0, Math.min(100, model.a + model.b * x)))
+
+    import('plotly.js-dist-min').then(Plotly => {
+      Plotly.react(chartRef.current, [
+        {
+          x: dataset.map(d => d.x),
+          y: dataset.map(d => d.y),
+          mode: 'markers',
+          type: 'scatter',
+          name: 'Datos',
+          marker: { color: '#00d9ff', size: 7, opacity: 0.8 },
+        },
+        {
+          x: xLine,
+          y: yLine,
+          mode: 'lines',
+          type: 'scatter',
+          name: 'Regresión',
+          line: { color: '#7c6fff', width: 2 },
+        },
+        {
+          x: [attempts],
+          y: [prediction],
+          mode: 'markers',
+          type: 'scatter',
+          name: 'Predicción',
+          marker: { color: risk.color, size: 12, symbol: 'diamond', line: { color: '#fff', width: 1.5 } },
+        },
+      ], {
+        paper_bgcolor: '#1a1a1a',
+        plot_bgcolor: '#1a1a1a',
+        font: { color: '#a7b4d6', family: 'Poppins, sans-serif', size: 11 },
+        margin: { t: 20, r: 20, b: 40, l: 45 },
+        xaxis: {
+          title: 'Intentos fallidos',
+          gridcolor: 'rgba(255,255,255,0.06)',
+          zerolinecolor: 'rgba(255,255,255,0.1)',
+          color: '#666',
+        },
+        yaxis: {
+          title: 'Riesgo (%)',
+          range: [0, 105],
+          gridcolor: 'rgba(255,255,255,0.06)',
+          zerolinecolor: 'rgba(255,255,255,0.1)',
+          color: '#666',
+        },
+        legend: { font: { size: 10 }, bgcolor: 'rgba(0,0,0,0)' },
+        showlegend: true,
+      }, {
+        responsive: true,
+        displayModeBar: false,
+      })
+    })
   }, [dataset, model.a, model.b, attempts, prediction, risk.color])
 
   const loadData = useCallback((data) => {
