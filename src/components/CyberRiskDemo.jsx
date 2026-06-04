@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import Plotly from 'plotly.js-dist-min'
 
 const DEFAULT_DATA = [
   {x:5,y:8},{x:10,y:12},{x:15,y:15},{x:20,y:18},{x:25,y:22},{x:30,y:26},
@@ -78,61 +77,8 @@ export default function CyberRiskDemo() {
   const risk       = getRisk(prediction)
 
   useEffect(() => {
-    if (!chartRef.current) return
-    const maxX = Math.max(150, ...dataset.map(d => d.x))
-    const regX = [0, maxX + 10]
-    const regY = regX.map(x => model.a + model.b * x)
-
-    Plotly.react(
-      chartRef.current,
-      [
-        {
-          x: dataset.map(d => d.x),
-          y: dataset.map(d => d.y),
-          mode: 'markers',
-          type: 'scatter',
-          name: 'Datos',
-          marker: { color: '#00d9ff', size: 7, opacity: 0.9 },
-        },
-        {
-          x: regX,
-          y: regY,
-          mode: 'lines',
-          type: 'scatter',
-          name: 'Modelo',
-          line: { color: '#00d084', width: 2 },
-        },
-        {
-          x: [attempts],
-          y: [prediction],
-          mode: 'markers',
-          type: 'scatter',
-          name: 'Predicción',
-          marker: { color: risk.color, size: 14, symbol: 'star', line: { color: '#fff', width: 1 } },
-        },
-      ],
-      {
-        paper_bgcolor: 'transparent',
-        plot_bgcolor:  'transparent',
-        font: { color: '#a7b4d6', family: 'Poppins, sans-serif', size: 11 },
-        xaxis: {
-          title: 'Intentos Fallidos',
-          gridcolor: 'rgba(255,255,255,0.07)',
-          zerolinecolor: 'rgba(255,255,255,0.15)',
-          color: '#a7b4d6',
-        },
-        yaxis: {
-          title: 'Riesgo (%)',
-          range: [0, 108],
-          gridcolor: 'rgba(255,255,255,0.07)',
-          zerolinecolor: 'rgba(255,255,255,0.15)',
-          color: '#a7b4d6',
-        },
-        legend: { bgcolor: 'transparent', font: { color: '#a7b4d6', size: 10 } },
-        margin: { l: 52, r: 16, t: 16, b: 48 },
-      },
-      { responsive: true }
-    )
+    // Plotly.react disabled temporarily - keeping component structure for testing
+    // TODO: Re-enable when Plotly loads properly in production
   }, [dataset, model.a, model.b, attempts, prediction, risk.color])
 
   const loadData = useCallback((data) => {
