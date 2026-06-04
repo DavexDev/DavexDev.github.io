@@ -640,6 +640,15 @@ h3 {
     linear-gradient(135deg, #203a37 0%, #263c35 40%, #e8dfd2 40.5%, #8b2b13 100%);
 }
 
+.project-cover--cyber {
+  background:
+    linear-gradient(120deg, rgba(0, 10, 20, 0.15), rgba(0, 10, 20, 0.7)),
+    linear-gradient(135deg, #0f0f0f 0%, #0a1628 50%, #001a33 100%);
+}
+.project-cover--cyber .project-cover-eyebrow { color: #00d9ff; }
+.project-cover--cyber strong                 { color: #ffffff; }
+.project-cover--cyber span:last-child        { color: #b0b0b0; }
+
 .project-cover--industrial {
   background:
     linear-gradient(120deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.72)),

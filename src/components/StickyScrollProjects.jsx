@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { FaUsers } from 'react-icons/fa'
 import ReactLenis from 'lenis/react'
@@ -62,18 +63,30 @@ function StickyCard({ i, project, progress, range, targetScale, stackOrder }) {
               <span>Colaboración con <strong>{project.collaborators}</strong></span>
             </div>
           )}
-          {primaryLink && (
-            <a
-              href={primaryLink.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn primary"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.75rem' }}
-            >
-              {LinkIcon && <LinkIcon aria-hidden="true" size={13} />}
-              {primaryLink.label}
-            </a>
-          )}
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.75rem' }}>
+            {project.hasDemo && (
+              <Link
+                to="/cyberrisk"
+                className="btn primary"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
+              >
+                <FaPlayCircle aria-hidden="true" size={13} />
+                Probar demo
+              </Link>
+            )}
+            {primaryLink && (
+              <a
+                href={primaryLink.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
+              >
+                {LinkIcon && <LinkIcon aria-hidden="true" size={13} />}
+                {primaryLink.label}
+              </a>
+            )}
+          </div>
         </div>
       </motion.div>
     </div>

@@ -1,4 +1,5 @@
 ﻿import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaExternalLinkAlt, FaGithub, FaPlayCircle, FaCode, FaUsers } from 'react-icons/fa'
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6'
@@ -114,6 +115,16 @@ export default function Projects() {
                       ))}
                     </div>
                     <div className="project-actions">
+                      {project.hasDemo && (
+                        <Link
+                          to="/cyberrisk"
+                          className="btn primary"
+                          style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
+                        >
+                          <FaPlayCircle aria-hidden="true" size={14} />
+                          Probar demo
+                        </Link>
+                      )}
                       {project.links.map((link) => {
                         const LinkIcon = LINK_ICON_MAP[link.icon]
                         return (

@@ -173,6 +173,24 @@ export const projects = [
     coverAlt: 'Juego Snake clásico',
   },
   {
+    id: 108,
+    title: 'CyberRisk Predictor GT 2026',
+    category: 'datos',
+    badge: 'Estadística',
+    hasDemo: true,
+    coverEyebrow: 'Análisis predictivo',
+    coverCaption: 'Regresión lineal aplicada a ciberseguridad.',
+    coverClass: 'project-cover--cyber',
+    description:
+      'Dashboard interactivo que aplica regresión lineal simple para estimar el riesgo de intrusión en servidores a partir de intentos fallidos de acceso. Modelo original en R con R² = 0.9825. Carga tu propio dataset CSV y el modelo se recalcula en tiempo real.',
+    outcome:
+      'Los datos cargados persisten en localStorage entre visitas. Demuestra estadística inferencial aplicada a ciberseguridad.',
+    tags: ['R', 'Shiny', 'React', 'Vite', 'Plotly.js', 'Regresión Lineal', 'Ciberseguridad'],
+    links: [
+      { label: 'Ver código', href: 'https://github.com/davexdev/cyberrisk-predictor', primary: false, icon: 'FaGithub' },
+    ],
+  },
+  {
     id: 107,
     title: 'Parqueo El Roble',
     description:
