@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import emailjs from 'emailjs-com'
 import {
-  FaPhoneAlt,
   FaEnvelope,
   FaGithub,
   FaLinkedin,
@@ -81,13 +80,7 @@ export default function Contact() {
             </p>
 
             <div className="contact-links">
-              <a href="tel:+50258978555" className="contact-link">
-                <span className="contact-link-icon" aria-hidden="true">
-                  <FaPhoneAlt />
-                </span>
-                <span>+502 5897-8555</span>
-              </a>
-              <a href="mailto:xdave418@gmail.com" className="contact-link">
+<a href="mailto:xdave418@gmail.com" className="contact-link">
                 <span className="contact-link-icon" aria-hidden="true">
                   <FaEnvelope />
                 </span>

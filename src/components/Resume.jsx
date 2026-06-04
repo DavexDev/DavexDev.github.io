@@ -19,7 +19,7 @@ export default function Resume() {
               </div>
               <div style={{ display: 'grid', gap: '0.45rem' }}>
                 <p className="muted">Guatemala | Open to Remote Work | Disponibilidad inmediata</p>
-                <p className="muted">Tel: +502 5897-8555 | Email: xdave418@gmail.com</p>
+                <p className="muted">Email: xdave418@gmail.com</p>
                 <p className="muted">GitHub: github.com/davexdev</p>
               </div>
             </div>
