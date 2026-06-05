@@ -176,11 +176,12 @@ export const projects = [
     id: 108,
     title: 'CyberRisk Predictor GT 2026',
     category: 'datos',
-    badge: 'Estadística',
+    badge: 'Académico',
     hasDemo: true,
     coverEyebrow: 'Análisis predictivo',
     coverCaption: 'Regresión lineal aplicada a ciberseguridad.',
-    coverClass: 'project-cover--cyber',
+    cover: '/CyberRisk.png',
+    coverAlt: 'CyberRisk Predictor GT 2026 - Dashboard interactivo de regresión lineal',
     description:
       'Dashboard interactivo que aplica regresión lineal simple para estimar el riesgo de intrusión en servidores a partir de intentos fallidos de acceso. Modelo original en R con R² = 0.9825. Carga tu propio dataset CSV y el modelo se recalcula en tiempo real.',
     outcome:
