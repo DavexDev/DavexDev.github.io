@@ -4,7 +4,6 @@ import { gsap } from 'gsap'
 import {
   FaGithub,
   FaLinkedin,
-  FaHeart,
   FaArrowUp,
   FaStar,
 } from 'react-icons/fa'
@@ -384,18 +383,6 @@ export default function Footer() {
             style={{ color: 'var(--muted)', fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}
           >
             © {year} Deyvi Joel Xol. Todos los derechos reservados.
-          </div>
-
-          <div
-            className="footer-glass-pill cf-badge"
-            style={{ padding: '0.65rem 1.4rem', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', gap: '0.45rem', cursor: 'default' }}
-          >
-            <span style={{ color: 'var(--muted)', fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Crafted with</span>
-            <span className="animate-footer-heartbeat" style={{ color: '#ff4d6d', display: 'flex', alignItems: 'center' }}>
-              <FaHeart size={13} aria-hidden="true" />
-            </span>
-            <span style={{ color: 'var(--muted)', fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>by</span>
-            <span style={{ color: 'var(--text)', fontWeight: 900, fontSize: '0.78rem' }}>DavexDev</span>
           </div>
 
           <MagneticButton
