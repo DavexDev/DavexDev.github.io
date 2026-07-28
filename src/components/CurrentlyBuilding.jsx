@@ -82,7 +82,7 @@ export default function CurrentlyBuilding() {
         <div className={`cb-intro${visible ? ' is-visible' : ''}`}>
           <div className="cb-badge">
             <FaCircle className="cb-pulse-dot" aria-hidden="true" size={8} />
-            <span>En construcción activa</span>
+            <span>Web en producción · Mobile en desarrollo</span>
           </div>
           <h3 className="cb-project-name">PIUMS Ecosystem</h3>
           <p className="cb-project-desc">
@@ -116,15 +116,24 @@ export default function CurrentlyBuilding() {
           })}
         </div>
 
-        <div className={`cb-cta${visible ? ' is-visible' : ''}`}>
+        <div className={`cb-cta${visible ? ' is-visible' : ''}`} style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
           <a
-            href="https://github.com/app-piums/piums-platform"
+            href="https://piums.io/"
             target="_blank"
             rel="noopener noreferrer"
             className="btn primary"
             style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
           >
             <FaNetworkWired aria-hidden="true" size={14} />
+            Ver piums.io
+          </a>
+          <a
+            href="https://github.com/app-piums/piums-platform"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
+          >
             Ver avance en GitHub
           </a>
         </div>

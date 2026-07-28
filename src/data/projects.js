@@ -63,39 +63,24 @@ export const projects = [
     ],
   },
   {
-    id: 104,
-    title: 'PIUMS Platform',
-    collaborators: 'PIUMS',
-    description:
-      'Marketplace de Economia Naranja para conectar clientes con artistas y cubrir el ciclo completo de reserva: descubrimiento, cotizacion, booking, pago, ejecucion y resena. Arquitectura monorepo con gateway, SDK y microservicios desacoplados.',
-    outcome:
-      'Proximo lanzamiento. Avance fuerte en backend modular (auth, catalogo, booking, pagos, reseñas, notificaciones, chat), estandarizacion GTQ y despliegue hibrido Docker/Kubernetes para desarrollo.',
-    tags: ['Node.js + TS', 'Express', 'Prisma', 'PostgreSQL', 'Redis'],
-    category: 'web',
-    badge: 'Proximamente',
-    coverEyebrow: 'Marketplace creativo',
-    coverCaption: 'Plataforma en construccion para clientes y artistas.',
-    coverClass: 'project-cover--industrial',
-    links: [
-      { label: 'Ver avance', href: 'https://github.com/app-piums/piums-platform', primary: true, icon: 'FaGithub' },
-    ],
-  },
-  {
     id: 105,
     title: 'PIUMS Web Client & Artist',
     collaborators: 'PIUMS',
     description:
       'Doble aplicacion web en Next.js 14 (cliente y artista) con onboarding por rol, busqueda avanzada de artistas, flujo de booking, checkout, dashboards, agenda, mensajeria y ajustes operativos.',
     outcome:
-      'Proximo lanzamiento. La prioridad actual es consolidar experiencia end-to-end, integraciones con SDK y estabilidad de modulos criticos (booking, chat, filtros y onboarding).',
+      'Ya en produccion en piums.io. Experiencia end-to-end consolidada con integraciones del SDK y estabilidad en modulos criticos (booking, chat, filtros y onboarding).',
     tags: ['Next.js 14', 'Tailwind CSS', 'PiumsSDK', 'Stripe Checkout', 'Socket/Chat'],
     category: 'web',
-    badge: 'Proximamente',
+    badge: 'En produccion',
     coverEyebrow: 'Web apps por rol',
     coverCaption: 'Cliente y artista con experiencia especializada.',
     coverClass: 'project-cover--energy',
+    cover: '/piums-cover.png',
+    coverAlt: 'Piuma - aplicacion web para clientes y artistas',
     links: [
-      { label: 'Ver avance', href: 'https://github.com/app-piums/piums-platform', primary: true, icon: 'FaGithub' },
+      { label: 'Ver sitio', href: 'https://piums.io/', primary: true, icon: 'FaExternalLinkAlt' },
+      { label: 'Ver avance', href: 'https://github.com/app-piums/piums-platform', primary: false, icon: 'FaGithub' },
     ],
   },
   {
@@ -204,7 +189,7 @@ export const projects = [
     coverEyebrow: 'Reserva tu espacio',
     coverCaption: 'Administra y reserva parqueos en Esquipulas.',
     coverClass: 'project-cover--energy',
-    cover: '/parqueo-roble-cover.png',
+    cover: '/Parqueo.png',
     coverAlt: 'Parqueo El Roble - plataforma de reservas',
     links: [
       { label: 'Ver sitio', href: 'https://parqueo-umber.vercel.app/', primary: true, icon: 'FaExternalLinkAlt' },
