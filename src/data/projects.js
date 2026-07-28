@@ -120,11 +120,11 @@ export const projects = [
     id: 2,
     title: 'Torre de Hanoi',
     description:
-      'Mini juego con interfaz drag & drop, contador de movimientos y solución automática basada en recursividad. Demuestra habilidades en algoritmos y frontend interactivo.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Algoritmos'],
+      'Mini juego con interfaz interactiva (selecciona y mueve), contador de movimientos y solución automática basada en recursividad. Demuestra habilidades en algoritmos y frontend interactivo.',
+    tags: ['React', 'JavaScript', 'Algoritmos'],
     category: 'juego',
+    demoPath: '/hanoi',
     links: [
-      { label: 'Probar demo', href: 'https://davexdev.github.io/hanoi.html', primary: true, icon: 'FaPlayCircle' },
       { label: 'Código', href: 'https://github.com/davexdev/davexdev.github.io', primary: false, icon: 'FaCode' },
     ],
     cover: '/hanoi-cover.jpg',
@@ -147,11 +147,11 @@ export const projects = [
     id: 4,
     title: 'Snake Game',
     description:
-      'Juego web clásico tipo Snake, desarrollado en JavaScript puro, con controles táctiles para móvil y soporte para teclado WASD/flechas.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Canvas'],
+      'Juego web clásico tipo Snake, desarrollado en React con Canvas, con controles táctiles para móvil y soporte para teclado WASD/flechas.',
+    tags: ['React', 'JavaScript', 'Canvas'],
     category: 'juego',
+    demoPath: '/snake',
     links: [
-      { label: 'Probar demo', href: 'https://davexdev.github.io/snake.html', primary: true, icon: 'FaPlayCircle' },
       { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
     ],
     cover: '/nake-cover.jpg',
@@ -162,7 +162,7 @@ export const projects = [
     title: 'CyberRisk Predictor GT 2026',
     category: 'datos',
     badge: 'Académico',
-    hasDemo: true,
+    demoPath: '/cyberrisk',
     coverEyebrow: 'Análisis predictivo',
     coverCaption: 'Regresión lineal aplicada a ciberseguridad.',
     cover: '/CyberRisk.png',

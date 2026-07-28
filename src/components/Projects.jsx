@@ -115,9 +115,9 @@ export default function Projects() {
                       ))}
                     </div>
                     <div className="project-actions">
-                      {project.hasDemo && (
+                      {project.demoPath && (
                         <Link
-                          to="/cyberrisk"
+                          to={project.demoPath}
                           className="btn primary"
                           style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
                         >

@@ -64,9 +64,9 @@ function StickyCard({ i, project, progress, range, targetScale, stackOrder }) {
             </div>
           )}
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.75rem' }}>
-            {project.hasDemo && (
+            {project.demoPath && (
               <Link
-                to="/cyberrisk"
+                to={project.demoPath}
                 className="btn primary"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
               >
