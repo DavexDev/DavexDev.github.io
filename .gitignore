@@ -3,3 +3,10 @@ node_modules
 .env.local
 .DS_Store
 *.local
+
+# Notas de contexto para agentes de IA (otros proyectos) - nunca en un repo público
+AGENT.md
+agentscada.md
+CONTEXTO_PROYECTO.md
+IOS_CONTEXT.md
+*_Context.md
