@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Navbar              from './components/Navbar'
 import Hero                from './components/Hero'
 import About               from './components/About'
@@ -17,6 +18,16 @@ export const ThemeContext = createContext({ theme: 'dark', toggleTheme: () => {}
 
 export default function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark')
+  const location = useLocation()
+
+  useEffect(() => {
+    const id = location.pathname.replace(/^\//, '')
+    if (!id) return
+    const el = document.getElementById(id)
+    if (el) {
+      requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+    }
+  }, [location.pathname])
 
   useEffect(() => {
     const root = document.documentElement
