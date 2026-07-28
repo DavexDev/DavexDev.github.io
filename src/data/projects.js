@@ -158,6 +158,96 @@ export const projects = [
     coverAlt: 'Juego Snake clásico',
   },
   {
+    id: 109,
+    title: '2048',
+    description:
+      'Clásico juego de combinar tiles en una cuadrícula 4x4 hasta llegar a 2048. Teclado, gestos táctiles y botones en pantalla.',
+    tags: ['React', 'JavaScript'],
+    category: 'juego',
+    demoPath: '/2048',
+    coverEyebrow: 'Combina y suma',
+    coverCaption: 'Llega a 2048 antes de quedarte sin movimientos.',
+    coverClass: 'project-cover--cyber',
+    links: [
+      { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
+    ],
+  },
+  {
+    id: 110,
+    title: 'Buscaminas',
+    description:
+      'Buscaminas clásico 9x9 con revelado en cascada, modo bandera para marcar minas y temporizador.',
+    tags: ['React', 'JavaScript'],
+    category: 'juego',
+    demoPath: '/buscaminas',
+    coverEyebrow: 'Cuidado donde pisas',
+    coverCaption: 'Encuentra las 10 minas sin detonarlas.',
+    coverClass: 'project-cover--industrial',
+    links: [
+      { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
+    ],
+  },
+  {
+    id: 111,
+    title: 'Simon',
+    description:
+      'Juego de memoria: repite la secuencia de colores que crece cada ronda. Puntaje máximo persistido.',
+    tags: ['React', 'JavaScript'],
+    category: 'juego',
+    demoPath: '/simon',
+    coverEyebrow: 'Memoria y ritmo',
+    coverCaption: 'Repite la secuencia antes de que se te olvide.',
+    coverClass: 'project-cover--restaurant',
+    links: [
+      { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
+    ],
+  },
+  {
+    id: 112,
+    title: 'Sudoku',
+    description:
+      'Sudoku con generador y validador propios (backtracking): cada partida es única y garantiza solución. Tres niveles de dificultad.',
+    tags: ['React', 'JavaScript', 'Algoritmos'],
+    category: 'juego',
+    demoPath: '/sudoku',
+    coverEyebrow: 'Lógica pura',
+    coverCaption: 'Generador propio con solución única garantizada.',
+    coverClass: 'project-cover--energy',
+    links: [
+      { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
+    ],
+  },
+  {
+    id: 113,
+    title: 'Rompecabezas 15',
+    description:
+      'El clásico puzzle deslizante 4x4. El mezclado garantiza que todo tablero generado sea resoluble.',
+    tags: ['React', 'JavaScript'],
+    category: 'juego',
+    demoPath: '/puzzle15',
+    coverEyebrow: 'Ordena las fichas',
+    coverCaption: 'Desliza hasta ordenar del 1 al 15.',
+    coverClass: 'project-cover--brand',
+    links: [
+      { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
+    ],
+  },
+  {
+    id: 114,
+    title: 'Adivina la palabra',
+    description:
+      'Wordle en español: adivina la palabra de 5 letras en 6 intentos. Diccionario curado y teclado en pantalla con feedback por color.',
+    tags: ['React', 'JavaScript'],
+    category: 'juego',
+    demoPath: '/palabra',
+    coverEyebrow: 'Reta tu vocabulario',
+    coverCaption: 'Seis intentos, cinco letras, en español.',
+    coverClass: 'project-cover--industrial',
+    links: [
+      { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
+    ],
+  },
+  {
     id: 108,
     title: 'CyberRisk Predictor GT 2026',
     category: 'datos',
