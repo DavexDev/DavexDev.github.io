@@ -4,6 +4,7 @@ import { gsap } from 'gsap'
 import {
   FaGithub,
   FaLinkedin,
+  FaArrowUp,
   FaStar,
 } from 'react-icons/fa'
 
@@ -131,7 +132,11 @@ const STYLES = `
   .cf-bottom-bar { flex-direction: row; padding: 0 3rem 2rem; }
   .cf-copyright  { order: 1; }
   .cf-badge      { order: 2; }
+  .cf-back-top   { order: 3; }
 }
+
+.cf-back-top .cf-arrow        { transition: transform 0.3s ease; }
+.cf-back-top:hover .cf-arrow  { transform: translateY(-5px); }
 
 /* ── Entrance animations ── */
 .cf-enter {
@@ -379,6 +384,16 @@ export default function Footer() {
           >
             © {year} Deyvi Joel Xol. Todos los derechos reservados.
           </div>
+
+          <MagneticButton
+            as="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="footer-glass-pill cf-back-top"
+            aria-label="Volver al inicio"
+            style={{ width: '3rem', height: '3rem', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--muted)', border: 'none', background: 'none' }}
+          >
+            <FaArrowUp className="cf-arrow" size={16} aria-hidden="true" />
+          </MagneticButton>
         </div>
       </footer>
     </>

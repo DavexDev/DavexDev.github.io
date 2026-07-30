@@ -12,7 +12,6 @@ import Education           from './components/Education'
 import Certifications      from './components/Certifications'
 import Contact             from './components/Contact'
 import Footer              from './components/Footer'
-import BackToTop           from './components/BackToTop'
 
 export const ThemeContext = createContext({ theme: 'dark', toggleTheme: () => {} })
 
@@ -57,7 +56,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-      <BackToTop />
     </ThemeContext.Provider>
   )
 }
