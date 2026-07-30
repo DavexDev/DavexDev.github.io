@@ -15,8 +15,7 @@ const LINK_ICON_MAP = {
 function StickyCard({ i, project, progress, range, targetScale, stackOrder }) {
   const scale = useTransform(progress, range, [1, targetScale])
 
-  const primaryLink = project.links?.find((l) => l.primary) ?? project.links?.[0]
-  const LinkIcon = primaryLink ? LINK_ICON_MAP[primaryLink.icon] : null
+  const links = project.links ?? []
 
   return (
     <div className="ssp-sticky" style={{ zIndex: stackOrder }}>
@@ -75,18 +74,22 @@ function StickyCard({ i, project, progress, range, targetScale, stackOrder }) {
                 Probar demo
               </Link>
             )}
-            {primaryLink && (
-              <a
-                href={primaryLink.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
-              >
-                {LinkIcon && <LinkIcon aria-hidden="true" size={13} />}
-                {primaryLink.label}
-              </a>
-            )}
+            {links.map((link) => {
+              const LinkIcon = LINK_ICON_MAP[link.icon]
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`btn${link.primary ? ' primary' : ''}`}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
+                >
+                  {LinkIcon && <LinkIcon aria-hidden="true" size={13} />}
+                  {link.label}
+                </a>
+              )
+            })}
           </div>
         </div>
       </motion.div>
