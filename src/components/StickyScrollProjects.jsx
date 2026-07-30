@@ -39,6 +39,7 @@ function StickyCard({ i, project, progress, range, targetScale, stackOrder }) {
             />
           ) : (
             <div className={`ssp-cover-brand ${project.coverClass || ''}`}>
+              {project.coverIcon && <img src={project.coverIcon} alt="" className="ssp-cover-icon" aria-hidden="true" />}
               {project.coverEyebrow && <span className="ssp-eyebrow">{project.coverEyebrow}</span>}
               <strong>{project.title}</strong>
             </div>

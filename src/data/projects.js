@@ -299,6 +299,7 @@ export const projects = [
     coverEyebrow: 'Claude Code',
     coverCaption: 'Un sonido cuando Claude termina, espera o falla.',
     coverClass: 'project-cover--brand',
+    coverIcon: '/claude-bell-icon.png',
     links: [
       { label: 'Ver en npm', href: 'https://www.npmjs.com/package/@davexdev/claude-bell', primary: true, icon: 'FaExternalLinkAlt' },
       { label: 'Repositorio', href: 'https://github.com/DavexDev/claude-bell', primary: false, icon: 'FaGithub' },

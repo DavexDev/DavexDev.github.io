@@ -686,6 +686,16 @@ h3 {
   color: rgba(248, 251, 255, 0.8);
 }
 
+.project-cover-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+}
+
 .project-cover-eyebrow {
   display: inline-flex;
   width: fit-content;
@@ -1734,6 +1744,7 @@ h3 {
 }
 
 .ssp-cover-brand {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -1744,6 +1755,16 @@ h3 {
   background: linear-gradient(135deg, #0e172f, #0a2b4e 60%, #08111f);
   color: var(--text);
   gap: 0.35rem;
+}
+
+.ssp-cover-icon {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.4));
 }
 
 .ssp-badge {
