@@ -285,5 +285,23 @@ export const projects = [
       { label: 'Ver sitio', href: 'https://parqueo-umber.vercel.app/', primary: true, icon: 'FaExternalLinkAlt' },
       { label: 'Repositorio', href: 'https://github.com/DavexDev/parqueo', primary: false, icon: 'FaGithub' },
     ],
+  },
+  {
+    id: 115,
+    title: 'claude-bell',
+    description:
+      'Paquete npm de notificaciones sonoras para Claude Code: reproduce un sonido cuando una tarea termina, cuando Claude espera tu aprobación para ejecutar una herramienta, cuando termina un subagente, o cuando falla un comando. Multiplataforma (Windows, macOS, Linux) y sin dependencias, mediante hooks de Claude Code.',
+    outcome:
+      'Publicado en npm como @davexdev/claude-bell, con 6 temas de sonido seleccionables e instalación en un solo comando.',
+    tags: ['Node.js', 'CLI', 'Claude Code Hooks', 'npm', 'Cross-platform'],
+    category: 'web',
+    badge: 'Open Source',
+    coverEyebrow: 'Claude Code',
+    coverCaption: 'Un sonido cuando Claude termina, espera o falla.',
+    coverClass: 'project-cover--brand',
+    links: [
+      { label: 'Ver en npm', href: 'https://www.npmjs.com/package/@davexdev/claude-bell', primary: true, icon: 'FaExternalLinkAlt' },
+      { label: 'Repositorio', href: 'https://github.com/DavexDev/claude-bell', primary: false, icon: 'FaGithub' },
+    ],
   }
 ];
