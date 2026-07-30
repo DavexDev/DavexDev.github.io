@@ -296,10 +296,8 @@ export const projects = [
     tags: ['Node.js', 'CLI', 'Claude Code Hooks', 'npm', 'Cross-platform'],
     category: 'web',
     badge: 'Open Source',
-    coverEyebrow: 'Claude Code',
-    coverCaption: 'Un sonido cuando Claude termina, espera o falla.',
-    coverClass: 'project-cover--brand',
-    coverIcon: '/claude-bell-icon.png',
+    cover: '/claude-bell-cover.png',
+    coverAlt: 'claude-bell - notificaciones de sonido para Claude Code',
     links: [
       { label: 'Ver en npm', href: 'https://www.npmjs.com/package/@davexdev/claude-bell', primary: true, icon: 'FaExternalLinkAlt' },
       { label: 'Repositorio', href: 'https://github.com/DavexDev/claude-bell', primary: false, icon: 'FaGithub' },

@@ -84,7 +84,6 @@ export default function Projects() {
                   ) : (
                     <div className={`project-cover project-cover--brand ${project.coverClass || ''}`}>
                       <div className="project-cover-overlay" />
-                      {project.coverIcon && <img src={project.coverIcon} alt="" className="project-cover-icon" aria-hidden="true" />}
                       <div className="project-cover-content">
                         {project.coverEyebrow && <span className="project-cover-eyebrow">{project.coverEyebrow}</span>}
                         <strong>{project.title}</strong>
