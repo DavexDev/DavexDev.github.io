@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { FaUsers } from 'react-icons/fa'
@@ -12,8 +12,24 @@ const LINK_ICON_MAP = {
   FaCode,
 }
 
-function StickyCard({ i, project, progress, range, targetScale, stackOrder }) {
-  const scale = useTransform(progress, range, [1, targetScale])
+function StickyCard({ input, project, progress, stackOrder }) {
+  // Curva única de 4 puntos: invisible -> entra -> activa (opaca) -> sale.
+  // Al no haber más de una tarjeta a la vez fuera de opacidad 0/1, nunca
+  // se superponen dos tarjetas completas en semitransparencia.
+  const opacity = useTransform(progress, input, [0, 1, 1, 0])
+  const scale = useTransform(progress, input, [0.96, 1, 1, 0.96])
+  const y = useTransform(progress, input, [24, 0, 0, -24])
+  const pointerEvents = useTransform(opacity, (v) => (v < 0.05 ? 'none' : 'auto'))
+  const descRef = useRef(null)
+  const [expanded, setExpanded] = useState(false)
+  const [isClamped, setIsClamped] = useState(false)
+
+  useEffect(() => {
+    const el = descRef.current
+    if (el) {
+      setIsClamped(el.scrollHeight > el.clientHeight + 1)
+    }
+  }, [project.description])
 
   const links = project.links ?? []
 
@@ -22,7 +38,10 @@ function StickyCard({ i, project, progress, range, targetScale, stackOrder }) {
       <motion.div
         style={{
           scale,
-          top: `calc(-5vh + ${i * 18 + 160}px)`,
+          opacity,
+          y,
+          pointerEvents,
+          top: '-5vh',
         }}
         className="ssp-card"
       >
@@ -55,7 +74,18 @@ function StickyCard({ i, project, progress, range, targetScale, stackOrder }) {
               ))}
             </div>
           </div>
-          <p className="ssp-desc muted">{project.description}</p>
+          <p ref={descRef} className={`ssp-desc muted${expanded ? ' expanded' : ''}`}>
+            {project.description}
+          </p>
+          {(isClamped || expanded) && (
+            <button
+              type="button"
+              className="ssp-desc-toggle"
+              onClick={() => setExpanded((v) => !v)}
+            >
+              {expanded ? 'Ver menos' : 'Ver más'}
+            </button>
+          )}
           {project.collaborators && (
             <div className="project-collab" style={{ marginTop: '0.5rem' }}>
               <FaUsers size={12} aria-hidden="true" />
@@ -96,26 +126,43 @@ function StickyCard({ i, project, progress, range, targetScale, stackOrder }) {
   )
 }
 
+// Construye los 4 puntos de entrada [entra, activa-desde, activa-hasta, sale]
+// para el progreso de scroll (0-1), garantizando que queden en orden
+// estrictamente creciente (framer-motion lo requiere).
+function buildInputRange(points) {
+  const out = [...points]
+  for (let k = 1; k < out.length; k++) {
+    if (out[k] <= out[k - 1]) out[k] = out[k - 1] + 0.0001
+  }
+  return out
+}
+
 export function StickyScrollProjects({ projects }) {
   const container = useRef(null)
+  // Arranca a contar progreso un poco antes de que el contenedor toque el
+  // borde superior del viewport (85% en vez de 0%), para no dejar un tramo
+  // de scroll "muerto" antes de que la primera tarjeta empiece a aparecer.
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ['start start', 'end end'],
+    offset: ['start 85%', 'end end'],
   })
+  const slot = 1 / projects.length
 
   return (
     <ReactLenis root options={{ lerp: 0.08 }}>
       <main ref={container} className="ssp-wrap">
         {projects.map((project, i) => {
-          const targetScale = Math.max(0.6, 1 - (projects.length - i - 1) * 0.07)
+          const activeFrom = i * slot
+          const activeUntil = (i + 1) * slot
+          const enter = Math.max(0, activeFrom - slot)
+          const exit = Math.min(1, activeUntil + slot)
+          const input = buildInputRange([enter, activeFrom, activeUntil, exit])
           return (
             <StickyCard
               key={project.id}
-              i={i}
+              input={input}
               project={project}
               progress={scrollYProgress}
-              range={[i * (1 / projects.length), 1]}
-              targetScale={targetScale}
               stackOrder={i + 1}
             />
           )
