@@ -6,9 +6,9 @@ Portafolio personal de **Deyvi Joel Xol (DavexDev)** — Desarrollador Web Jr. y
 
 ## Qué incluye
 
-- **Proyectos** — trabajo real en producción (Enervisa, SCADA, PIUMS, Restaurante Las Tejas, Parqueo El Roble) y proyectos académicos/personales.
+- **Proyectos** — trabajo real en producción (Enervisa, SCADA, PIUMS, Restaurante Las Tejas, Kaffe'm, AviTec, Parqueo El Roble) y proyectos académicos/personales.
 - **CyberRisk Predictor GT 2026** — dashboard interactivo de regresión lineal aplicada a ciberseguridad, con carga de dataset CSV en tiempo real.
-- **Mini juegos jugables** — Torre de Hanoi (con solución automática recursiva) y Snake, hechos en React.
+- **Snake jugable** — hecho en React con Canvas.
 - Secciones de habilidades, educación, certificaciones y contacto.
 - Tema claro/oscuro, animaciones con Framer Motion/GSAP y diseño responsive.
 
@@ -29,4 +29,4 @@ npm run preview   # sirve el build localmente
 
 El sitio se publica con **GitHub Pages** desde `main:/docs`. Cada release se compila con `npm run build` y el contenido de `dist/` se sincroniza manualmente a `docs/` antes de hacer commit y push a `main`.
 
-Las páginas pesadas (CyberRisk, Hanoi, Snake) se cargan con `React.lazy` para no afectar el tamaño del bundle principal del portafolio.
+Las páginas pesadas (CyberRisk, Snake) se cargan con `React.lazy` para no afectar el tamaño del bundle principal del portafolio.
