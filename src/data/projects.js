@@ -117,20 +117,6 @@ export const projects = [
     coverPosition: 'center 55%',
   },
   {
-    id: 2,
-    title: 'Torre de Hanoi',
-    description:
-      'Mini juego con interfaz interactiva (selecciona y mueve), contador de movimientos y solución automática basada en recursividad. Demuestra habilidades en algoritmos y frontend interactivo.',
-    tags: ['React', 'JavaScript', 'Algoritmos'],
-    category: 'juego',
-    demoPath: '/hanoi',
-    links: [
-      { label: 'Código', href: 'https://github.com/davexdev/davexdev.github.io', primary: false, icon: 'FaCode' },
-    ],
-    cover: '/hanoi-cover.jpg',
-    coverAlt: 'Demo interactiva Torre de Hanoi',
-  },
-  {
     id: 3,
     title: 'ETL System – Reportes',
     description:
@@ -156,96 +142,6 @@ export const projects = [
     ],
     cover: '/nake-cover.jpg',
     coverAlt: 'Juego Snake clásico',
-  },
-  {
-    id: 109,
-    title: '2048',
-    description:
-      'Clásico juego de combinar tiles en una cuadrícula 4x4 hasta llegar a 2048. Teclado, gestos táctiles y botones en pantalla.',
-    tags: ['React', 'JavaScript'],
-    category: 'juego',
-    demoPath: '/2048',
-    coverEyebrow: 'Combina y suma',
-    coverCaption: 'Llega a 2048 antes de quedarte sin movimientos.',
-    coverClass: 'project-cover--cyber',
-    links: [
-      { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
-    ],
-  },
-  {
-    id: 110,
-    title: 'Buscaminas',
-    description:
-      'Buscaminas clásico 9x9 con revelado en cascada, modo bandera para marcar minas y temporizador.',
-    tags: ['React', 'JavaScript'],
-    category: 'juego',
-    demoPath: '/buscaminas',
-    coverEyebrow: 'Cuidado donde pisas',
-    coverCaption: 'Encuentra las 10 minas sin detonarlas.',
-    coverClass: 'project-cover--industrial',
-    links: [
-      { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
-    ],
-  },
-  {
-    id: 111,
-    title: 'Simon',
-    description:
-      'Juego de memoria: repite la secuencia de colores que crece cada ronda. Puntaje máximo persistido.',
-    tags: ['React', 'JavaScript'],
-    category: 'juego',
-    demoPath: '/simon',
-    coverEyebrow: 'Memoria y ritmo',
-    coverCaption: 'Repite la secuencia antes de que se te olvide.',
-    coverClass: 'project-cover--restaurant',
-    links: [
-      { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
-    ],
-  },
-  {
-    id: 112,
-    title: 'Sudoku',
-    description:
-      'Sudoku con generador y validador propios (backtracking): cada partida es única y garantiza solución. Tres niveles de dificultad.',
-    tags: ['React', 'JavaScript', 'Algoritmos'],
-    category: 'juego',
-    demoPath: '/sudoku',
-    coverEyebrow: 'Lógica pura',
-    coverCaption: 'Generador propio con solución única garantizada.',
-    coverClass: 'project-cover--energy',
-    links: [
-      { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
-    ],
-  },
-  {
-    id: 113,
-    title: 'Rompecabezas 15',
-    description:
-      'El clásico puzzle deslizante 4x4. El mezclado garantiza que todo tablero generado sea resoluble.',
-    tags: ['React', 'JavaScript'],
-    category: 'juego',
-    demoPath: '/puzzle15',
-    coverEyebrow: 'Ordena las fichas',
-    coverCaption: 'Desliza hasta ordenar del 1 al 15.',
-    coverClass: 'project-cover--brand',
-    links: [
-      { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
-    ],
-  },
-  {
-    id: 114,
-    title: 'Adivina la palabra',
-    description:
-      'Wordle en español: adivina la palabra de 5 letras en 6 intentos. Diccionario curado y teclado en pantalla con feedback por color.',
-    tags: ['React', 'JavaScript'],
-    category: 'juego',
-    demoPath: '/palabra',
-    coverEyebrow: 'Reta tu vocabulario',
-    coverCaption: 'Seis intentos, cinco letras, en español.',
-    coverClass: 'project-cover--industrial',
-    links: [
-      { label: 'Código', href: 'https://github.com/DavexDev/DavexDev.github.io', primary: false, icon: 'FaCode' },
-    ],
   },
   {
     id: 108,
@@ -301,6 +197,41 @@ export const projects = [
     links: [
       { label: 'Ver en npm', href: 'https://www.npmjs.com/package/@davexdev/claude-bell', primary: true, icon: 'FaExternalLinkAlt' },
       { label: 'Repositorio', href: 'https://github.com/DavexDev/claude-bell', primary: false, icon: 'FaGithub' },
+    ],
+  },
+  {
+    id: 116,
+    title: "Kaffe'm",
+    description:
+      'Sitio web para Kaffe\'m, cafetería boutique en Concepción Las Minas, Chiquimula. Landing con menú completo, ficha de producto y carrito con checkout directo por WhatsApp, ademas de historia del local y ubicación.',
+    outcome:
+      'Desplegado en Vercel con Next.js 16 (App Router) y TypeScript. Diseño editorial oscuro, catálogo completo de menú y flujo de pedido pensado para conversión sin backend propio.',
+    tags: ['Next.js 16', 'TypeScript', 'Tailwind CSS v4', 'WhatsApp Checkout'],
+    category: 'web',
+    badge: 'Cliente',
+    coverEyebrow: 'Café de especialidad',
+    coverCaption: 'Menú, pedidos por WhatsApp y ubicación en un solo sitio.',
+    cover: '/kaffem-cover.png',
+    coverAlt: "Sitio web Kaffe'm - cafetería boutique en Concepción Las Minas, Chiquimula",
+    links: [
+      { label: 'Ver sitio', href: 'https://kaffe-m-z8ua.vercel.app/', primary: true, icon: 'FaExternalLinkAlt' },
+      { label: 'Repositorio', href: 'https://github.com/DavexDev/KAFFE-M', primary: false, icon: 'FaGithub' },
+    ],
+  },
+  {
+    id: 117,
+    title: 'AviTec — Tienda en línea',
+    description:
+      'Integración entre el punto de venta de AviTec (SoluPOS) y una vitrina en línea a la medida para AviTec, Tecnología Avícola (Chiquimula). El catálogo, precio y existencia se leen en vivo desde el mismo POS de la tienda física, con cache que se refresca sola en segundo plano, fotos servidas desde un proxy propio que las optimiza, reglas de publicación curadas y pedido final por WhatsApp.',
+    outcome:
+      'Arquitectura pensada para más de un comercio de SoluPOS sin tocar el código base, más páginas legales, enlaces de producto compartibles con vista previa para redes y WhatsApp, sitemap y una revisión de seguridad dedicada antes de publicar.',
+    tags: ['Laravel 13', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'shadcn/ui', 'SoluPOS API'],
+    category: 'web',
+    badge: 'Cliente',
+    cover: '/avitec-cover.jpg',
+    coverAlt: 'Vitrina en línea de AviTec, Tecnología Avícola',
+    links: [
+      { label: 'Ver sitio', href: 'https://avitecgt.com/sitio', primary: true, icon: 'FaExternalLinkAlt' },
     ],
   }
 ];
