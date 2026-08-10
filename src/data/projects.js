@@ -214,7 +214,6 @@ export const projects = [
     coverAlt: "Sitio web Kaffe'm - cafetería boutique en Concepción Las Minas, Chiquimula",
     links: [
       { label: 'Ver sitio', href: 'https://kaffe-m-z8ua.vercel.app/', primary: true, icon: 'FaExternalLinkAlt' },
-      { label: 'Repositorio', href: 'https://github.com/DavexDev/KAFFE-M', primary: false, icon: 'FaGithub' },
     ],
   },
   {
