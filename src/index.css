@@ -1660,7 +1660,7 @@ h3 {
   flex-direction: column;
   align-items: center;
   padding-top: 2rem;
-  padding-bottom: 60vh;
+  padding-bottom: 20vh;
 }
 
 .ssp-sticky {
@@ -1681,6 +1681,12 @@ h3 {
   gap: 0;
   width: 100%;
   max-width: 860px;
+  /* Altura pareja para todas las tarjetas: el scroll les reparte el mismo
+     espacio a todas por igual, así que si una queda más baja que otra (por
+     no tener "Colaboración con" o el botón "Ver más"), su turno físico en
+     pantalla dura menos de lo que la animación espera y deja un hueco en
+     blanco antes de que aparezca la siguiente. */
+  min-height: 390px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   background: var(--surface);
@@ -1694,7 +1700,8 @@ h3 {
 
 .ssp-cover {
   position: relative;
-  height: 260px;
+  min-height: 260px;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -1767,6 +1774,29 @@ h3 {
   overflow: hidden;
 }
 
+.ssp-desc.expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.ssp-desc-toggle {
+  align-self: flex-start;
+  margin-top: -0.2rem;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.ssp-desc-toggle:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 640px) {
   .ssp-card {
     grid-template-columns: 1fr;
@@ -1782,6 +1812,6 @@ h3 {
   }
 
   .ssp-wrap {
-    padding-bottom: 30vh;
+    padding-bottom: 12vh;
   }
 }

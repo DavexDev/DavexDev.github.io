@@ -112,9 +112,8 @@ export const projects = [
       { label: 'Ver proyecto', href: 'https://digitalcaregt.github.io', primary: true, icon: 'FaExternalLinkAlt' },
       { label: 'Repositorio', href: 'https://github.com/davexdev', primary: false, icon: 'FaGithub' },
     ],
-    cover: '/digitalcare-cover.jpg',
+    cover: '/digital-cover.jpg',
     coverAlt: 'Sitio web Digital Care - soporte técnico e informática Guatemala',
-    coverPosition: 'center 55%',
   },
   {
     id: 3,
@@ -221,11 +220,12 @@ export const projects = [
   {
     id: 117,
     title: 'AviTec — Tienda en línea',
+    collaborators: 'SCADA',
     description:
-      'Integración entre el punto de venta de AviTec (SoluPOS) y una vitrina en línea a la medida para AviTec, Tecnología Avícola (Chiquimula). El catálogo, precio y existencia se leen en vivo desde el mismo POS de la tienda física, con cache que se refresca sola en segundo plano, fotos servidas desde un proxy propio que las optimiza, reglas de publicación curadas y pedido final por WhatsApp.',
+      'Integración entre el punto de venta de AviTec y una vitrina en línea a la medida para AviTec, Tecnología Avícola (Chiquimula). El catálogo, precio y existencia se leen en vivo desde el mismo sistema de la tienda física, con cache que se refresca sola en segundo plano, fotos servidas desde un proxy propio que las optimiza, reglas de publicación curadas y pedido final por WhatsApp.',
     outcome:
-      'Arquitectura pensada para más de un comercio de SoluPOS sin tocar el código base, más páginas legales, enlaces de producto compartibles con vista previa para redes y WhatsApp, sitemap y una revisión de seguridad dedicada antes de publicar.',
-    tags: ['Laravel 13', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'shadcn/ui', 'SoluPOS API'],
+      'Arquitectura pensada para más de un comercio con el mismo tipo de punto de venta sin tocar el código base, más páginas legales, enlaces de producto compartibles con vista previa para redes y WhatsApp, sitemap y una revisión de seguridad dedicada antes de publicar.',
+    tags: ['Laravel 13', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'shadcn/ui', 'POS API'],
     category: 'web',
     badge: 'Cliente',
     cover: '/avitec-cover.jpg',
