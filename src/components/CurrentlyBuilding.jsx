@@ -9,6 +9,7 @@ import {
   FaNetworkWired,
   FaCircle,
 } from 'react-icons/fa'
+import TermWindow from './TermWindow'
 
 const PILLARS = [
   {
@@ -79,7 +80,7 @@ export default function CurrentlyBuilding() {
       <div className="container">
         <h2 className="section-title">Currently Building</h2>
 
-        <div className={`cb-intro${visible ? ' is-visible' : ''}`}>
+        <TermWindow path="wip.log" className={`cb-intro${visible ? ' is-visible' : ''}`}>
           <div className="cb-badge">
             <FaCircle className="cb-pulse-dot" aria-hidden="true" size={8} />
             <span>Web en producción · Mobile en desarrollo</span>
@@ -95,7 +96,7 @@ export default function CurrentlyBuilding() {
               <span key={t} className="tag">{t}</span>
             ))}
           </div>
-        </div>
+        </TermWindow>
 
         <div className="cb-pillars-grid">
           {PILLARS.map((pillar, i) => {

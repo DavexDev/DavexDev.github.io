@@ -186,6 +186,14 @@ h3 {
   white-space: nowrap;
 }
 
+/* Handwritten accent (matches the CV's "Hola, soy Deyvi!" flourish) */
+.hero-hi {
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 1.35em;
+  color: var(--muted);
+}
+
 /* Gradient text */
 .grad {
   background: linear-gradient(90deg, var(--primary), var(--accent));
@@ -204,6 +212,66 @@ h3 {
   flex-wrap: wrap;
   gap: 0.4rem;
   margin: 0.75rem 0;
+}
+
+/* ================================================================
+   TERMINAL WINDOW — code-editor chrome used to frame text-heavy
+   sections (Sobre mí, Currently Building, Educación, Certificaciones),
+   echoing the same motif as the downloadable CV.
+   ================================================================ */
+.term-window {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+}
+
+.term-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 1.1rem;
+  background: color-mix(in srgb, var(--surface-2) 85%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+
+.term-dots {
+  display: flex;
+  gap: 5px;
+  flex: none;
+}
+
+.term-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: block;
+}
+
+.term-dots span:nth-child(1) { background: #ff6259; }
+.term-dots span:nth-child(2) { background: #ffc93c; }
+.term-dots span:nth-child(3) { background: #3ddc84; }
+
+.term-path {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+.term-path b {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.term-body {
+  padding: 1.75rem;
+}
+
+@media (max-width: 640px) {
+  .term-body { padding: 1.25rem; }
 }
 
 /* ================================================================

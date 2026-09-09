@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useInView } from '../hooks/useInView'
 import { FaStar, FaRobot, FaShieldAlt, FaChartLine, FaGraduationCap, FaDatabase } from 'react-icons/fa'
 import { certifications } from '../data/certifications'
+import TermWindow from './TermWindow'
 
 const CERT_ICON_MAP = {
   FaRobot,
@@ -94,14 +95,16 @@ export default function Certifications() {
     <section id="certificaciones" className="section">
       <div className="container">
         <h2 className="section-title">Certificaciones</h2>
-        <div className="certs-grid">
-          {certifications.map((cert) => (
-            <CertBadge key={cert.id} cert={cert} onPreview={() => openPreview(cert)} />
-          ))}
-        </div>
-        <p className="muted certs-note">
-          <FaStar aria-hidden="true" style={{ marginRight: '0.45rem' }} /> Más certificaciones en camino — esta sección se actualiza continuamente.
-        </p>
+        <TermWindow path="certificaciones.json">
+          <div className="certs-grid">
+            {certifications.map((cert) => (
+              <CertBadge key={cert.id} cert={cert} onPreview={() => openPreview(cert)} />
+            ))}
+          </div>
+          <p className="muted certs-note">
+            <FaStar aria-hidden="true" style={{ marginRight: '0.45rem' }} /> Más certificaciones en camino — esta sección se actualiza continuamente.
+          </p>
+        </TermWindow>
       </div>
 
       {preview && (

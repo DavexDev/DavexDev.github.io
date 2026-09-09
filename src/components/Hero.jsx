@@ -49,7 +49,7 @@ export default function Hero() {
           </span>
 
           <h1>
-            Hola, soy <span className="grad">Deyvi Joel Xol</span>
+            <span className="hero-hi">Hola, soy</span> <span className="grad">Deyvi Joel Xol</span>
           </h1>
 
           <p className="hero-role" aria-label={`Rol actual: ${ROLES[roleIdx]}`}>

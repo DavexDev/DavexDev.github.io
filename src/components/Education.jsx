@@ -1,6 +1,7 @@
 import { useInView } from '../hooks/useInView'
 import { FaGraduationCap, FaSchool } from 'react-icons/fa'
 import { education } from '../data/education'
+import TermWindow from './TermWindow'
 
 const EDUCATION_ICON_MAP = {
   FaGraduationCap,
@@ -42,11 +43,13 @@ export default function Education() {
     <section id="educacion" className="section">
       <div className="container">
         <h2 className="section-title">Educación</h2>
-        <div className="timeline">
-          {education.map((item, i) => (
-            <TimelineItem key={item.id} item={item} isLeft={i % 2 === 0} />
-          ))}
-        </div>
+        <TermWindow path="formacion.yml">
+          <div className="timeline">
+            {education.map((item, i) => (
+              <TimelineItem key={item.id} item={item} isLeft={i % 2 === 0} />
+            ))}
+          </div>
+        </TermWindow>
       </div>
     </section>
   )
