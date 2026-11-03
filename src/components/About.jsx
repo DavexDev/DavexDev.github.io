@@ -7,8 +7,8 @@ export default function About() {
         <h2 className="section-title">Sobre mí</h2>
         <TermWindow path="sobre-mi.md" className="about-card">
           <p>
-            Soy estudiante de <strong>Ingeniería en Sistemas</strong> y desarrollador con proyectos
-            en producción para clientes reales. En el día a día trabajo con <strong>Laravel</strong>{' '}
+            Desarrollador <strong>Full Stack</strong> y estudiante de{' '}
+            <strong>Ingeniería en Sistemas</strong>, con proyectos en producción para clientes reales. En el día a día trabajo con <strong>Laravel</strong>{' '}
             (y Filament para paneles administrativos), <strong>React / Next.js</strong> y apps
             nativas en <strong>Kotlin</strong> y <strong>SwiftUI</strong>, con bases de datos{' '}
             <strong>MySQL</strong>, <strong>PostgreSQL</strong> y <strong>Supabase</strong>.
