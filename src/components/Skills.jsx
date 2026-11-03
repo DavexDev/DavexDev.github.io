@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { FaServer, FaCode, FaMobileAlt, FaTools, FaSitemap } from 'react-icons/fa'
+import { FaServer, FaCode, FaMobileAlt, FaTools, FaSitemap, FaMicrochip } from 'react-icons/fa'
 import { skillCategories } from '../data/skills'
 
-const ICON_MAP = { FaServer, FaCode, FaMobileAlt, FaTools, FaSitemap }
+const ICON_MAP = { FaServer, FaCode, FaMobileAlt, FaTools, FaSitemap, FaMicrochip }
 
 function CategoryCard({ category }) {
   const ref = useRef(null)

@@ -16,6 +16,7 @@ const LINK_ICON_MAP = {
 const CATEGORIES = [
   { id: 'all',   label: 'Todos'   },
   { id: 'web',   label: 'Web'     },
+  { id: 'movil', label: 'Móvil'   },
   { id: 'juego', label: 'Juegos'  },
   { id: 'datos', label: 'Datos'   },
 ]
@@ -74,13 +75,15 @@ export default function Projects() {
                   className={`card project-card${project.featured ? ' featured' : ''}`}
                 >
                   {project.cover ? (
-                    <img
-                      src={project.cover}
-                      alt={project.coverAlt}
-                      className="project-cover"
-                      loading="lazy"
-                      style={project.coverPosition ? { objectPosition: project.coverPosition } : undefined}
-                    />
+                    <div className="project-cover-frame" style={{ '--cover-img': `url("${project.cover}")` }}>
+                      <img
+                        src={project.cover}
+                        alt={project.coverAlt}
+                        className={`project-cover${project.coverFit === 'cover' ? ' fit-cover' : ''}`}
+                        loading="lazy"
+                        style={project.coverPosition ? { objectPosition: project.coverPosition } : undefined}
+                      />
+                    </div>
                   ) : (
                     <div className={`project-cover project-cover--brand ${project.coverClass || ''}`}>
                       <div className="project-cover-overlay" />

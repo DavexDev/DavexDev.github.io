@@ -41,17 +41,19 @@ function StickyCard({ input, project, progress, stackOrder }) {
           opacity,
           y,
           pointerEvents,
-          top: '-5vh',
         }}
         className="ssp-card"
       >
         {/* Cover */}
-        <div className="ssp-cover">
+        <div
+          className="ssp-cover"
+          style={project.cover ? { '--cover-img': `url("${project.cover}")` } : undefined}
+        >
           {project.cover ? (
             <img
               src={project.cover}
               alt={project.coverAlt}
-              className="ssp-cover-img"
+              className={`ssp-cover-img${project.coverFit === 'cover' ? ' fit-cover' : ''}`}
               style={project.coverPosition ? { objectPosition: project.coverPosition } : undefined}
               loading="lazy"
             />

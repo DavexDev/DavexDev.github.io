@@ -88,15 +88,14 @@ export const projects = [
     title: 'PIUMS Mobile Apps',
     collaborators: 'PIUMS',
     description:
-      'Ecosistema mobile nativo para cliente y artista en iOS y Android, alineado al flujo web de PIUMS: autenticacion, reservas, agenda, servicios, mensajeria y perfil.',
+      'Cuatro apps nativas (Cliente y Artista, en Android e iOS) sobre el mismo backend de producción de PIUMS, el marketplace para descubrir y contratar artistas callejeros en Latinoamérica. Cliente: búsqueda de artistas, reservas, pagos, mensajería en tiempo real, reseñas, cupones y disputas. Artista: dashboard, reservas, calendario, chat y portafolio multimedia.',
     outcome:
-      'Proximo lanzamiento. Base iOS ya documentada con SwiftUI + SwiftData + Firebase Auth/FCM y arquitectura MVVM, en paralelo al frente Android con Compose y Retrofit.',
-    tags: ['SwiftUI', 'SwiftData', 'Firebase Auth', 'Jetpack Compose', 'Retrofit'],
-    category: 'web',
-    badge: 'Proximamente',
-    coverEyebrow: 'Ecosistema mobile',
-    coverCaption: 'iOS y Android para artistas y clientes.',
-    coverClass: 'project-cover--restaurant',
+      'Android en Kotlin + Jetpack Compose e iOS en SwiftUI + SwiftData, con paridad de funciones entre plataformas. Los perfiles públicos se diseñaron para mantener la contratación y el pago dentro de PIUMS.',
+    tags: ['Kotlin', 'Jetpack Compose', 'SwiftUI', 'SwiftData', 'Chat en tiempo real'],
+    category: 'movil',
+    badge: 'En desarrollo',
+    cover: '/piums-mobile-cover.jpg',
+    coverAlt: 'PIUMS - apps móviles para clientes y artistas',
     links: [
       { label: 'Ver avance', href: 'https://github.com/app-piums/piums-platform', primary: true, icon: 'FaGithub' },
     ],
@@ -232,5 +231,33 @@ export const projects = [
     links: [
       { label: 'Ver sitio', href: 'https://avitecgt.com/sitio', primary: true, icon: 'FaExternalLinkAlt' },
     ],
+  },
+  {
+    id: 118,
+    title: 'QualitySolutions',
+    description:
+      'App móvil y panel web para auditorías de calidad en sucursales de restaurantes: cuestionarios con evidencia fotográfica, firma doble, seguimiento de correcciones, capacitación y tableros con ranking de sucursales. Cinco roles (Soporte, Auditor, Jefe de calidad, Gerente y Director general), cada uno con acceso solo a lo suyo.',
+    outcome:
+      'React Native + Expo para iOS y Android, panel web y backend en Supabase. En fase de publicación en App Store.',
+    tags: ['React Native', 'Expo', 'Supabase', 'Panel web', 'Roles y permisos'],
+    category: 'movil',
+    badge: 'En publicación',
+    cover: '/qualitysolutions-cover.jpg',
+    coverAlt: 'QualitySolutions - tablero de puntuación y estatus de auditorías por sucursal',
+    links: [],
+  },
+  {
+    id: 119,
+    title: 'SoluPos',
+    description:
+      'App contenedora para sistemas POS web: administra varias tiendas por URL, escanea códigos de barras con la cámara e imprime recibos en impresoras térmicas por Bluetooth.',
+    outcome:
+      'Android en Kotlin + Jetpack Compose con AAB firmado para Google Play, y port a SwiftUI con paridad visual y de comportamiento, con escáner e impresión BLE probados en dispositivo real.',
+    tags: ['Kotlin', 'Jetpack Compose', 'SwiftUI', 'Bluetooth LE', 'Impresión térmica'],
+    category: 'movil',
+    badge: 'Por publicar',
+    cover: '/solupos-cover.jpg',
+    coverAlt: 'SoluPos - punto de venta móvil, escanea códigos e imprime recibos',
+    links: [],
   }
 ];

@@ -22,6 +22,10 @@ import {
   SiKalilinux,
   SiMysql,
   SiNodedotjs,
+  SiLaravel,
+  SiReact,
+  SiArduino,
+  SiPython,
 } from 'react-icons/si'
 
 const ORBIT_SKILLS = [
@@ -40,11 +44,11 @@ const ORBIT_SKILLS = [
   { short: 'CI/CD', full: 'CI/CD - automatizacion de despliegues y flujos de desarrollo', category: 'devops', icon: SiGithub },
   { short: 'Claude Code', full: 'Claude Code - asistencia de desarrollo con IA', category: 'devops', icon: FaRobot },
   { short: 'SCADA', full: 'SCADA - conceptos de supervision y control industrial', category: 'backend', icon: FaIndustry },
-  { short: 'Full Stack', full: 'Desarrollo Full Stack - integracion frontend, backend y base de datos', category: 'backend', icon: FaLayerGroup },
-  { short: 'Dashboards', full: 'Diseno de Dashboards - interfaces administrativas y paneles de control', category: 'data', icon: FaChartLine },
+  { short: 'Laravel', full: 'Laravel - backend y paneles admin con Filament en proyectos de clientes', category: 'backend', icon: SiLaravel },
+  { short: 'React', full: 'React / Next.js - interfaces web y apps por rol', category: 'frontend', icon: SiReact },
   { short: 'APIs REST', full: 'APIs REST - comunicacion entre frontend y backend', category: 'backend', icon: FaNetworkWired },
-  { short: 'CRUD Systems', full: 'CRUD Systems - sistemas de gestion completos', category: 'backend', icon: FaDatabase },
-  { short: 'Responsive', full: 'Responsive Web Design - adaptacion multiplataforma', category: 'frontend', icon: FaMobileAlt },
+  { short: 'Arduino', full: 'Arduino - brazo robotico DUM-E y simulador sim3d (proyectos universitarios)', category: 'backend', icon: SiArduino },
+  { short: 'Python', full: 'Python - vision por computadora con TensorFlow (proyecto universitario)', category: 'data', icon: SiPython },
 ]
 
 const RINGS = [

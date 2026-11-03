@@ -5,8 +5,9 @@ export const skillCategories = [
     color: '#00e5ff',
     icon: 'FaServer',
     items: [
-      'Node.js', 'Express', 'TypeScript', 'Prisma',
-      'REST APIs', 'PostgreSQL', 'MySQL', 'Redis', 'Laravel', 'PHP',
+      'Laravel', 'Filament', 'PHP', 'CodeIgniter 4', 'Node.js', 'Express',
+      'TypeScript', 'Prisma', 'REST APIs', 'PostgreSQL', 'MySQL', 'SQL Server',
+      'Redis', 'Supabase',
     ],
   },
   {
@@ -15,8 +16,8 @@ export const skillCategories = [
     color: '#7c4dff',
     icon: 'FaCode',
     items: [
-      'React', 'Next.js 14', 'Tailwind CSS', 'JavaScript',
-      'TypeScript', 'HTML5', 'CSS3', 'Figma',
+      'React', 'Next.js', 'Vite', 'Tailwind CSS', 'shadcn/ui', 'Three.js',
+      'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Figma',
     ],
   },
   {
@@ -26,7 +27,7 @@ export const skillCategories = [
     icon: 'FaMobileAlt',
     items: [
       'SwiftUI', 'SwiftData', 'Kotlin', 'Jetpack Compose',
-      'Flutter', 'Firebase Auth', 'FCM',
+      'React Native', 'Expo', 'Bluetooth LE', 'Flutter', 'Firebase Auth', 'FCM',
     ],
   },
   {
@@ -36,6 +37,16 @@ export const skillCategories = [
     icon: 'FaTools',
     items: [
       'Docker', 'Kubernetes', 'GitHub Actions', 'CI/CD', 'Git', 'Linux',
+    ],
+  },
+  {
+    id: 'university',
+    label: 'Hardware, IA y datos',
+    color: '#ffd166',
+    icon: 'FaMicrochip',
+    items: [
+      'Arduino', 'C++', 'ESP32-CAM', 'Servos y NEMA-17', 'Python', 'TensorFlow',
+      'Flask', 'R / Shiny', 'Autómatas (JFLAP)', 'Wokwi',
     ],
   },
   {
