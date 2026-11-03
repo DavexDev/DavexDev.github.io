@@ -1,0 +1,371 @@
+/* ================================================================
+   CÓMO TRABAJO — grid tipo bento
+   ================================================================ */
+.hiw-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr 1fr;
+  gap: 1.1rem;
+}
+
+.hiw-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.hiw-card:hover {
+  border-color: color-mix(in srgb, var(--primary) 40%, transparent);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18), var(--glow);
+}
+
+.hiw-text {
+  padding: 1.3rem 1.4rem 0;
+}
+
+.hiw-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.hiw-caption {
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ---------- 1. editor ---------- */
+.hiw-editor {
+  margin: auto -1px -1px 1.1rem;
+  transform: translateY(14px);
+  border: 1px solid var(--border);
+  border-right: none;
+  border-radius: 12px 0 0 0;
+  background: #0d1326;
+  box-shadow: 0 -10px 30px rgba(0, 229, 255, 0.08);
+  overflow: hidden;
+}
+
+.hiw-editor-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hiw-editor-file {
+  font-size: 0.72rem;
+  color: #a7b4d6;
+}
+
+.hiw-editor-lang {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  color: #ff6b5e;
+}
+
+.hiw-editor-code {
+  padding: 0.75rem 0.9rem 1.6rem 0.6rem;
+  font-family: 'Consolas', 'SFMono-Regular', ui-monospace, monospace;
+  font-size: 0.72rem;
+  line-height: 1.75;
+  color: #e6f0ff;
+  overflow: hidden;
+}
+
+.hiw-line {
+  display: flex;
+  gap: 0.8rem;
+  white-space: pre;
+}
+
+.hiw-ln {
+  width: 1rem;
+  text-align: right;
+  color: #4a5578;
+  user-select: none;
+}
+
+.tk-k { color: #c792ea; }
+.tk-f { color: #82aaff; }
+.tk-s { color: #c3e88d; }
+.tk-c { color: #5c6a8f; font-style: italic; }
+
+/* ---------- 2. diagrama API ---------- */
+.hiw-diagram {
+  position: relative;
+  flex: 1;
+  margin: 0.5rem 1.2rem 1.2rem;
+  min-height: 190px;
+}
+
+.hiw-diagram-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.hiw-wire {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 1.4;
+  stroke-opacity: 0.55;
+  stroke-dasharray: 4 6;
+  animation: hiw-flow 1.4s linear infinite;
+}
+
+@keyframes hiw-flow {
+  to { stroke-dashoffset: -20; }
+}
+
+.hiw-node {
+  position: absolute;
+  transform: translate(-50%, 0);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.hiw-node svg { color: var(--primary); }
+
+.hiw-node--api {
+  padding: 0.55rem 1.1rem;
+  border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+  background: color-mix(in srgb, var(--primary) 12%, var(--surface));
+  box-shadow: var(--glow);
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- 3. WhatsApp ---------- */
+.hiw-chat {
+  margin: auto 1.2rem 1.2rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: #0b141a;
+}
+
+.hiw-chat-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  background: #1f2c34;
+  color: #e9edef;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.hiw-chat-bar svg { color: #25d366; }
+
+.hiw-chat-body {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.9rem 0.85rem 1rem;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.03) 0 2px, transparent 3px) 0 0 / 18px 18px,
+    #0b141a;
+}
+
+.hiw-bubble {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  max-width: 85%;
+  padding: 0.55rem 0.75rem 0.4rem;
+  border-radius: 10px 0 10px 10px;
+  background: #005c4b;
+  color: #e9edef;
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.hiw-bubble strong { font-weight: 600; margin-bottom: 0.15rem; }
+.hiw-bubble-total { margin-top: 0.2rem; opacity: 0.85; font-style: italic; }
+
+.hiw-bubble time {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  align-self: flex-end;
+  font-size: 0.62rem;
+  color: #8fd4c4;
+}
+
+/* ---------- 4. roles ---------- */
+.hiw-roles {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 1rem 1.2rem 1.2rem;
+}
+
+.hiw-role {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.42rem 0.75rem;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
+  font-size: 0.76rem;
+  color: var(--muted);
+  transition: all 0.35s ease;
+}
+
+.hiw-role svg { opacity: 0.6; }
+
+.hiw-role.is-active {
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  transform: translateX(4px);
+}
+
+.hiw-role.is-active svg { color: var(--accent); opacity: 1; }
+
+/* ---------- 5. banda de stack ---------- */
+.hiw-belt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+  flex: 1;
+  padding: 1rem 0 1.3rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+}
+
+.hiw-belt-row { overflow: hidden; }
+
+.hiw-belt-track {
+  display: flex;
+  gap: 0.8rem;
+  width: max-content;
+  animation: hiw-marquee 22s linear infinite;
+}
+
+.hiw-belt-row.is-reverse .hiw-belt-track {
+  animation-direction: reverse;
+}
+
+.hiw-card--belt:hover .hiw-belt-track {
+  animation-play-state: paused;
+}
+
+@keyframes hiw-marquee {
+  to { transform: translateX(calc(-50% - 0.4rem)); }
+}
+
+.hiw-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 15px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+}
+
+/* ---------- 6. hardware → dashboard ---------- */
+.hiw-flow {
+  display: flex;
+  justify-content: space-between;
+  margin: auto 1.2rem 1.6rem;
+}
+
+.hiw-flow-step {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.hiw-flow-icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--primary);
+}
+
+.hiw-flow-step:last-child .hiw-flow-icon {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.hiw-flow-label {
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.hiw-flow-link {
+  position: absolute;
+  top: 22px;
+  left: calc(50% + 24px);
+  right: calc(-50% + 24px);
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--primary) 0 5px, transparent 5px 10px);
+  background-size: 20px 2px;
+  opacity: 0.6;
+  animation: hiw-dash 1s linear infinite;
+}
+
+@keyframes hiw-dash {
+  to { background-position: 20px 0; }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 960px) {
+  .hiw-grid { grid-template-columns: 1fr 1fr; }
+  .hiw-card--api { grid-column: span 2; }
+}
+
+@media (max-width: 640px) {
+  .hiw-grid { grid-template-columns: 1fr; }
+  .hiw-card--api { grid-column: auto; }
+  .hiw-card { min-height: 260px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hiw-wire,
+  .hiw-belt-track,
+  .hiw-flow-link { animation: none; }
+}

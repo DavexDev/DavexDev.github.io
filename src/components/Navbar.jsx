@@ -42,7 +42,7 @@ export default function Navbar() {
 
       <div className="navbar-inner">
         <a href="#inicio" className="brand" aria-label="Inicio" onClick={close}>
-          <span className="brand-logo">DX</span>
+          <img className="brand-mark" src="/logo-mark-128.png" alt="" width="38" height="38" />
           <span>Deyvi Xol</span>
         </a>
 

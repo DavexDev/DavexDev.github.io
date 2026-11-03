@@ -6,6 +6,8 @@ import About               from './components/About'
 import Resume              from './components/Resume'
 import Projects            from './components/Projects'
 import CurrentlyBuilding   from './components/CurrentlyBuilding'
+import HowIWork            from './components/HowIWork'
+import IntroSplash         from './components/IntroSplash'
 import Skills              from './components/Skills'
 import GitHubStats         from './components/GitHubStats'
 import Education           from './components/Education'
@@ -42,6 +44,7 @@ export default function App() {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <IntroSplash />
       <Navbar />
       <main>
         <Hero />
@@ -49,6 +52,7 @@ export default function App() {
         <Resume />
         <Projects />
         <CurrentlyBuilding />
+        <HowIWork />
         <Skills />
         <GitHubStats />
         <Education />
