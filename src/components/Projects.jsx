@@ -1,7 +1,7 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaExternalLinkAlt, FaGithub, FaPlayCircle, FaCode, FaUsers } from 'react-icons/fa'
+import { FaExternalLinkAlt, FaGithub, FaPlayCircle, FaCode, FaUsers, FaApple, FaGooglePlay } from 'react-icons/fa'
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6'
 import { projects } from '../data/projects'
 import { StickyScrollProjects } from './StickyScrollProjects'
@@ -11,6 +11,8 @@ const LINK_ICON_MAP = {
   FaGithub,
   FaPlayCircle,
   FaCode,
+  FaApple,
+  FaGooglePlay,
 }
 
 const CATEGORIES = [

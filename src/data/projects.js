@@ -90,14 +90,17 @@ export const projects = [
     description:
       'Cuatro apps nativas (Cliente y Artista, en Android e iOS) sobre el mismo backend de producción de PIUMS, el marketplace para descubrir y contratar artistas callejeros en Latinoamérica. Cliente: búsqueda de artistas, reservas, pagos, mensajería en tiempo real, reseñas, cupones y disputas. Artista: dashboard, reservas, calendario, chat y portafolio multimedia.',
     outcome:
-      'Android en Kotlin + Jetpack Compose e iOS en SwiftUI + SwiftData, con paridad de funciones entre plataformas. Los perfiles públicos se diseñaron para mantener la contratación y el pago dentro de PIUMS.',
+      'Android en Kotlin + Jetpack Compose e iOS en SwiftUI + SwiftData, con paridad de funciones entre plataformas, publicadas en App Store y Google Play. Los perfiles públicos se diseñaron para mantener la contratación y el pago dentro de PIUMS.',
     tags: ['Kotlin', 'Jetpack Compose', 'SwiftUI', 'SwiftData', 'Chat en tiempo real'],
     category: 'movil',
-    badge: 'En desarrollo',
+    badge: 'En App Store y Google Play',
     cover: '/piums-mobile-cover.jpg',
     coverAlt: 'PIUMS - apps móviles para clientes y artistas',
     links: [
-      { label: 'Ver avance', href: 'https://github.com/app-piums/piums-platform', primary: true, icon: 'FaGithub' },
+      { label: 'Cliente · App Store', href: 'https://apps.apple.com/gt/app/id6817821238', primary: true, icon: 'FaApple' },
+      { label: 'Cliente · Google Play', href: 'https://play.google.com/store/apps/details?id=io.piums.cliente', primary: true, icon: 'FaGooglePlay' },
+      { label: 'Artista · App Store', href: 'https://apps.apple.com/gt/app/id6817821498', primary: false, icon: 'FaApple' },
+      { label: 'Artista · Google Play', href: 'https://play.google.com/store/apps/details?id=io.piums.artista', primary: false, icon: 'FaGooglePlay' },
     ],
   },
   {
@@ -238,13 +241,17 @@ export const projects = [
     description:
       'App móvil y panel web para auditorías de calidad en sucursales de restaurantes: cuestionarios con evidencia fotográfica, firma doble, seguimiento de correcciones, capacitación y tableros con ranking de sucursales. Cinco roles (Soporte, Auditor, Jefe de calidad, Gerente y Director general), cada uno con acceso solo a lo suyo.',
     outcome:
-      'React Native + Expo para iOS y Android, panel web y backend en Supabase. En fase de publicación en App Store.',
+      'React Native + Expo para iOS y Android, panel web y backend en Supabase. Publicada en App Store y Google Play.',
     tags: ['React Native', 'Expo', 'Supabase', 'Panel web', 'Roles y permisos'],
     category: 'movil',
-    badge: 'En publicación',
+    badge: 'En App Store y Google Play',
     cover: '/qualitysolutions-cover.jpg',
     coverAlt: 'QualitySolutions - tablero de puntuación y estatus de auditorías por sucursal',
-    links: [],
+    links: [
+      { label: 'App Store', href: 'https://apps.apple.com/gt/app/id6822853827', primary: true, icon: 'FaApple' },
+      { label: 'Google Play', href: 'https://play.google.com/store/apps/details?id=app.qualitysolutions.auditoria', primary: true, icon: 'FaGooglePlay' },
+      { label: 'Sitio web', href: 'https://qualitysolutions.app/', primary: false, icon: 'FaExternalLinkAlt' },
+    ],
   },
   {
     id: 119,

@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { FaUsers } from 'react-icons/fa'
 import ReactLenis from 'lenis/react'
-import { FaExternalLinkAlt, FaGithub, FaPlayCircle, FaCode } from 'react-icons/fa'
+import { FaExternalLinkAlt, FaGithub, FaPlayCircle, FaCode, FaApple, FaGooglePlay } from 'react-icons/fa'
 
 const LINK_ICON_MAP = {
   FaExternalLinkAlt,
   FaGithub,
   FaPlayCircle,
   FaCode,
+  FaApple,
+  FaGooglePlay,
 }
 
 function StickyCard({ input, project, progress, stackOrder }) {
