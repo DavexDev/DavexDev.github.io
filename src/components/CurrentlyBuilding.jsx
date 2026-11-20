@@ -27,7 +27,7 @@ const PILLARS = [
   {
     icon: FaMobileAlt,
     title: 'Mobile Apps',
-    desc: 'Cuatro apps nativas: Cliente y Artista en Android (Kotlin + Jetpack Compose) e iOS (SwiftUI + SwiftData), sobre el mismo backend de producción.',
+    desc: 'Cuatro apps nativas: Cliente y Artista en Android (Kotlin + Jetpack Compose) e iOS (SwiftUI + SwiftData), sobre el mismo backend de producción. Publicadas en App Store y Google Play.',
     color: '#00ffa3',
   },
   {
@@ -83,7 +83,7 @@ export default function CurrentlyBuilding() {
         <TermWindow path="wip.log" className={`cb-intro${visible ? ' is-visible' : ''}`}>
           <div className="cb-badge">
             <FaCircle className="cb-pulse-dot" aria-hidden="true" size={8} />
-            <span>Web en producción · 4 apps nativas en desarrollo</span>
+            <span>Web y 4 apps nativas en producción · App Store y Google Play</span>
           </div>
           <h3 className="cb-project-name">PIUMS Ecosystem</h3>
           <p className="cb-project-desc">
